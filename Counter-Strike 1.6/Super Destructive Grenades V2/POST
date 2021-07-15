@@ -1,0 +1,74 @@
+https://forums.alliedmods.net/showthread.php?t=163841
+
+
+Super Destructive Grenades
+Version 2.1.0
+By hornet
+
+Description
+
+This plugin sends weapons flying and knocks back players when a HE Grenade explodes in its vacinity. It also damages / destroys breakable entities including entities that are destroyed when the bomb goes off.
+
+Last updated: May 31st, 2013
+
+CVar:
+
+    sdg_breakables_damage
+
+    -Damage HE Grenade inflicts on surrounding breakable entities
+
+    sdg_explode_radius
+
+    -HE Grenade explosion radius for surrounding entities
+
+    sdg_break_mode <0|1|2>
+
+    -0 to disable functionaliy, 1 to damage breakable entities, 2 to always destroy them including bomb targeted entities
+
+    sdg_knockback_player
+
+    -The power amount used to knock back surrounding players
+
+    sdg_knockback_weapons
+
+    -The power amount used to knock back surrounding weapon entities
+
+    sdg_through_walls
+
+    -Determines whether knockback will occur through solid objects [ Default 0 ]
+
+
+Custom Modules Required
+
+    Orpheu
+
+
+Installation
+
+    Have Orpheu Module installed ( see link in Required Modules )
+    Extract CGrenade folder into cstrike/addons/amxmodx/configs/orpheu/functions/
+
+
+Credits
+
+    Arkshine - CGrenade::Detonate3 signature.
+
+
+Changelog:
+
+
+Quote:
+2.1.0 [ 8/3/14 ] Cvar added for knockback through walls.
+
+2.0.1 [ 31/5/13 ] Safety check added. Small efficiency revision.
+
+2.0.0 [ 29/5/13 ] Huge update.
+
+    Grenades now use a radius damage formula to inflict damage on breakable entities
+    All weapon entities on the ground are now knocked back by grenade explosions
+    Players are now knocked back by grenade explosions ( obeys friendly fire )
+
+Quote:
+1.1.0 Plugin now uses Orpheu module for maximum efficiency. Also considers bomb targeted entities.
+1.0.0 Inital Release
+

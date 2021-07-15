@@ -1,0 +1,187 @@
+https://forums.alliedmods.net/showthread.php?t=18452
+
+Bad Camper 1.4.239 (released: July 21, 2008 )
+
+This plugin punishes players that camp too long. Camping is a strategy, no doubt about it. However, like most things in life, it's best done in moderation. That's why Bad Camper exists. It allows players to camp but encourages them to not pitch a tent.
+
+There can be a combination of punishments that get applied to a player that camps too long. Punishments start when the player's camping meter reaches 80%. They get worse at 90%. They finally come to a crescendo at 100%.
+
+
+Table of Contents
+
+Support
+Installation
+Options (CVARS)
+Commands
+Installation Files
+Notes
+Change Log
+Credits
+Previous Versions (unsupported)
+
+
+Support
+top
+
+If you are posting in this thread because the plugin or a feature of the plugin isn't working for you, please do all of the following so that we can more efficiently figure out what's going on:
+
+Quote:
+If you have access to your game server's console, type the following in the server console:
+status
+meta list
+amxx plugins
+amxx cvars
+If you don't have access the your game server's console, join your server and type the following in your game console:
+status
+rcon_password your_rcon_password
+rcon meta list
+rcon amxx plugins
+rcon amxx cvars
+Paste everything from the status command *except* the player list.
+Paste the entire result from the meta list and amxx plugins commands.
+Paste *only* the CVARs that contain "bad_camper.amxx" in the last column from the amxx cvars command. They will be grouped together.
+Installation
+top
+
+
+File Locations:
+.\gamemod\addons\amxmodx\plugins\bad_camper.amxx
+.\gamemod\addons\amxmodx\data\lang\bad_camper.txt
+.\gamemod\sounds\misc\snore.wav
+Modules:
+fun (required)
+fakemeta (required)
+cstrike (optional; required if utilizing money reduction punishment)
+csx (required if running CS or CS:CZ)
+dodx (required if running DoD)
+tfcx (required if running TFC)
+Options (CVARS)
+top
+
+badcamper_punish <iFlags>
+Specifies how a player is to be punished when they camp too long. A value of 0 will disable this plugin.
+
+The flags are additive.
+1: Slap
+2: Health Reduction
+4: Sound (set sound via badcamper_sound)
+8: Blind
+16: Money Reduction (requires CSTRIKE module)
+32: Snark Attack (requires Monster Mod with Snarks enabled)
+The default is 12 (snore and blind).
+
+badcamper_sound <iFlag>
+Specifies the sound to use as a punishment when the badcamper_punish flag includes the "sound" punishment.
+1: Snore
+2: Heartbeat
+The default is 1 (snore).
+
+badcamper_money <iPercentage>
+Specifies the percentage of money taken away when a player's meter reaches 100% when using the "money reduction" punishment.
+
+The default is 10 percent.
+
+badcamper_limit <iSeconds>
+Specifies the number of seconds a player can camp in one spot before their camping meter will reach 100%.
+
+The default is 35 seconds.
+
+badcamper_display <iPercentage>
+Specifies the percentage at which the meter is displayed to the player. Valid values range from 0 (never show) to 100.
+
+The default is 1 percent.
+
+badcamper_show_spec <0|1>
+Specifies whether to allow spectators to see other player's meters.
+
+The default is 1, to allow it.
+
+badcamper_check_all <0|1>
+Specifies whether only the team with the current primary objective should be checked for camping or if both teams should.
+0: only check the team with the current primary objective
+1: always check both teams
+The default is 1.
+
+The current primary objective is defined as follows:
+if the map is not a "de" map, the CTs have the primary objective
+if the map is a "de" map and the bomb hasn't been planted, the Ts have the primary objective
+if the map is a "de" map and the bomb has been planted, the CTs have the primary objective
+badcamper_immunity_flags <cAccessLevels>
+Specifies the access level flags needed for a player to have immunity.
+
+Immunity is achieved by standing completely still and not looking around for approximately 6 seconds. The camp meter will still increase until it reaches 65% or more at which time it'll stop until they move or look around again. If the meter is already at 80% or higher, the meter won't stop.
+
+Set this CVAR to blank to disallow immunity.
+
+For available flags, http://wiki.amxmodx.org/index.php/Ad...#Access_Levels
+
+The default is blank (no immunity).
+
+A common value, when admin immunity is desired, is to use the "a" flag (ADMIN_IMMUNITY).
+
+badcamper_start <iSeconds>
+Specifies how many seconds after the freeze time ends each round that the meter will start.
+
+The default is 4 seconds.
+
+Note that camping is checked every 2 seconds so any value you put in here will effectively be rounded up as such.
+
+badcamper_damage_reset <iResetType>
+Specifies if the attacker's or defender's meter gets reset when the player is injured by another.
+0: No meters are reset.
+1: The attacker's meter is reset.
+2: The defender's meter is reset.
+3: Both meters are reset.
+The default is 3.
+
+badcamper_damage_restart <iSeconds>
+Specifies how many seconds after a player either gives or receives damage that the meter will restart.
+
+The default is 4 seconds.
+
+Note that camping is checked every 2 seconds so any value you put in here will effectively be rounded up as such.
+
+badcamper_health <iHealthPoints>
+Specifies how many points of health to remove from the player every 2 seconds once their meter reaches 100% if using the health reduction punishment. If the health reduction punishment is not being used, this CVAR has no effect.
+
+The default is 10 health points.
+
+badcamper_allow <iPlayerCount|iPlayerPercent%>
+Specifies when a team that is being checked for camping is allowed to camp. A value of 0 doesn't allow a team to camp.
+
+The default is 0.
+
+The value can either be expressed as a straight count or as a percentage. If the value is being expressed as a percentage, "%" has to follow the value. Examples below. If the value is a count, players can camp when the number of living players on their team falls to this value or lower. If the value is a percentage, players can camp when the percentage of living players on their team is at this value or lower when compared to the living players on the other team.
+
+Examples:
+
+badcamper_allow 2
+Pretty straight-forward. Once there are 2 or fewer players left alive on your team, you can camp.
+
+badcamper_allow 40%
+More powerful and complex. Once your team comprises of living players that is 40% or less than the number of living players on the other team, you can camp. For instance (assume your team is listed first) the following match-ups would allow your team to camp: 1v4, 2v5, 3v8, 4v12, 5v13, 6v15.
+
+badcamper_min_players <iPlayers>
+Specifies the minimum number of players that have to be connected to the server before players are allowed to camp.
+
+The default is 0 players.
+
+This CVAR affects both badcamper_check_all and badcamper_allow functionality.
+
+badcamper_announce <announcementType>
+Specifies how to announce to the opposite team that a player is camping.
+0: Make no announcement.
+1: Announce via chat.
+2: Announce via HUD.
+3: Announce via chat and HUD.
+The default is 3 (chat and HUD).
+
+
+Commands
+top
+
+badcamper list
+Lists the punishments in the console and indicates which of them are active.
+
+
+Installation Files

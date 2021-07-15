@@ -1,0 +1,19 @@
+https://forums.alliedmods.net/showthread.php?p=207502?p=207502
+HE Damage Effect - v0.2, by v3x
+
+Description:
+Simple plugin that gradually allows you to hear again after being hit by a grenade. Your screen will also shake and go on a weird angle & flash red for a second.
+
+Cvars:
+he_damage_effect "1"
+
+Required Modules:
+Engine
+
+Changelog:
+v0.1 - Initial release
+v0.2 - Lowered the default volume a tad & added a red screen flash
+
+For the CZ version, click here.
+
+Thanks to Coolfat3459 for the original idea & baldbobby for testing it for AMX.

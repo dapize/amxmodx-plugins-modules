@@ -1,0 +1,14 @@
+https://forums.alliedmods.net/showthread.php?t=66411
+
+
+Lie Flat (Nomexous)
+
+Generally, when you drop an item on a sloped surface in CS, it doesn't lie flat. The game sets the object's pitch and roll as if it were always on a flat surface. Using this plugin, dropped items, grenades, and the bomb will now lie flat on the surface beneath them.
+
+There are no console commands; simply add this plugin in your plugins.ini, and changelevel or restart your server.
+
+I've only tested this in CS. It's possible to use it with other mods; however, you may need to change the classnames to suit your needs.
+
+This plugin is short, but you wouldn't believe the amount of research it took to find the proper way to align objects to the ground. There were many other more complicated ways I tried that didn't work. If you include this code in your own plugin, please credit me.
+
+Check out the screenshots below.

@@ -1,0 +1,12 @@
+https://forums.alliedmods.net/showthread.php?t=51098
+
+Auto Join on Connect
+Description
+Plugin allow to players automatically join team/team&class on connect.
+CVars
+ajc_team (0: OFF, N: team index, 5: auto team, default: 5) - controls team join
+ajc_class (0: OFF, N: class index, 5: auto class, default: 5) - controls class join
+ajc_imm (0: OFF, 1: ON, default: 1) - don't affect on immuned players (ON/OFF)
+
+Credits
+Major__ - inquiry

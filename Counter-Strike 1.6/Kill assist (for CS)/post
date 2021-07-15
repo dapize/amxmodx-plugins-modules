@@ -1,0 +1,66 @@
+https://forums.alliedmods.net/showthread.php?t=91360
+
+Kill assist v1.2b (for CS)
+Author: Digi (aka Hunter-Digital)
+
+Description:
+When a player gets killed, this plugin checks if another player, from the same team, did enough damage to the victim so that he could be an accomplice to the kill and the assister will also receive a frag (all of these are cvar controlled)
+
+Configuration variables and default values:
+- amx_killassist_enable 0/1/2 (default: 1)
+Enable modes: 0 = Disable / 1 = Enable with DeathMsg / 2 = Enable with HUD message
+
+- amx_killassist_mindamage 1-9999 (default: 50)
+Minimum amount of damage to deal to be nominated for an assisted kill
+
+- amx_killassist_givefrags 0/1 (default: 1)
+Give or not give the assister frags
+
+- amx_killassist_givemoney 0-16000 (default: 300)
+Give or not give the assister some money, 0 disables, 1 or more sets how much money
+
+- amx_killassist_onlyalive 0/1 (default: 0)
+Only alive players can be of assistance in killing other players
+
+Modules required:
+- hamsandwich
+- cstrike
+- engine
+- fun
+
+Credits and thanks:
+- ConnorMcLeod - for helping with quick name changing
+- arkshine - for helping with name squeeze
+- joaquimandrade - code improvements
+- anakin_cstrike - code improvements
+- Nextra - more code improvements
+- ajvn - some ideas
+- Dores - and more code improvements
+- frearmer - hud message sugestion
+
+Some screenshots:
+[IMG]http://img253.**************/img253/4124/14436808.jpg[/IMG]
+[IMG]http://img403.**************/img403/1954/40100193.jpg[/IMG]
+[IMG]http://img299.**************/img299/9150/81448149.jpg[/IMG]
+
+(sorry about the botlike names xD  )
+
+That's all, hope you guys like it 
+and if it's a good ideea I'll work on improving it, less modules, less module comunications and so on :}
+
+People who want to make this (or help me in making it) for other mods are free to do so 
+
+Changelog:
+v1.2b - modified public variable to "killassist_version" and fixed deathmsg not showing when you suicide with worldspawn or an entity
+v1.2 - added no-name-changing support, prints HUD message, to activate, set enabled to 2
+v1.1b - simplified cvar checking using clamp()
+v1.1 - converted to CS only, new cvars: amx_killassist_onlyalive, amx_killassist_givemoney, enriched cvar handling, added team cache and fixed some bugs
+v1.0d - Removed useless stuff xD, added pcvar on amx_mode and used formatex()
+v1.0c - Some modifications and added g_bOnline
+v1.0b - Fixed admin name bug
+v1.0 - Release
+
+Servers using Kill Assist:
+version < 1.2b
+version 1.2b+
+

@@ -1,0 +1,102 @@
+https://forums.alliedmods.net/showthread.php?t=310498
+
+public Info:
+
+I found problems using the plugin made by "OLO" (sometimes it did not kick the player even though I was watching the ping and was always above the allowed), so I decided to give a little update and modify some things, making clear to the administrators of the site that I am posting just for help if anyone else goes through this.
+
+Oh sure, I accept constructive criticism :D
+
+Notes about changes/updates:
+
+The plugin made by OLO uses dynamic number of arguments in its functions, and for some reason was failing (at least with me), so I made a small update on the way the tasks are created, passing the task ID correctly so as not to confuse with the ID of the player and I modified the cvar for pcvars (this does not make much difference, but who is updating one thing already avails and updates another.)
+
+Servers using this plugin:
+
+Here o/
+
+Requirements:
+
+* AMXX == 1.9 [only]
+* Compile locally
+
+Obs:
+
+~> Again, I thank "OLO" for the plugin originally produced, and SmileYzn for countless aids.
+
+Submit translations:
+
+Please send your translations through this link.
+
+Available Languages:
+
+Portuguese - iceeedR
+English - iceeedR
+Spanish - Rivotril
+Romanian - Nutu_
+Serbian - ^G[L]A^~Yuki
+Slovak - Belo95135
+German - Mordekay
+Turkish - Snake
+Hungarian - Hembi
+Albanian - lantimilan
+Simplified chinese - all85100
+Russian - SomewhereLost
+Albanian - edon1337
+
+
+History:
+
+Code:
+0.1 [06/09/2018]
+* First release
+
+0.2 [10/09/2018]
+* Fully upgraded to amxx 1.9.
+
+0.3 [03/10/2018]
+* new natives from amxx 1.9 used
+* AutoExecConfig Added to plugin
+
+0.4 [05/10/2018]
+* AutoExecConfig removed since it was added to the new amxx.
+
+0.5 [05/10/2018]
+* Fixed a typo.
+
+0.6 [18/10/2018]
+* Fixed use of native bind_pcvar_ *
+* Added language file
+
+0.7 [06/12/2018]
+* Added 2 cvars "Admin immunity" and "Notification filter"
+* Changed .cfg creation path
+
+0.8 [08/12/2018]
+* Added to log the kick message.
+* Small bugs fixed like the cvar "amx __..." (contained 2 underlines), please delete the newpingkicker.cfg and use the new file created.
+
+0.8 [02/01/2019] - Considering only minor adjustments there will be no change of build
+* Added variable to create log or not of kicked players.
+* Corrected the notification method so that it is always updated with the value of the cvar.
+
+0.9 [08/01/2019]
+* Minor Adjustments
+
+1.0 [27/02/2019]
+* Clean and remove unnecessary code
+* Removed the command amx_hpk, in view of the use of CFG.
+* Added a filter for the immunity flag to admin.
+
+1.1 [04/06/2019]
+* Little fixes
+
+1.2 [16/07/2019]
+* Fixed some typos
+
+1.3 [10/01/2020] - And probably the final version.
+* Fixed language formatting when kicking.
+
+Keep in mind the need to delete the old "NewPingkicker" cfg so that it can be generated the updated one.
+-----------------------------------------------END----------------------------------------------
+
+

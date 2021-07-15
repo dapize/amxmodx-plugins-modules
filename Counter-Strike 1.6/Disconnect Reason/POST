@@ -1,0 +1,74 @@
+https://forums.alliedmods.net/showthread.php?t=166239
+
+    Disconnect Reason
+
+            .: v0.6
+
+
+Description
+
+This plugin notifies players via chat and console the reason that a player has disconnected (ie. Timed out, Client sent 'drop', Kicked). The standard console message notifying of a player disconnect will not be shown when the plugin is enabled. I've also eliminated the cvars found in the previous release that controlled notification types and notification methods; all types of disconnects are displayed in both chat and console. There is also a forward which allows you to utilize disconnect reasons in your own plugins 'client_disconnect_reason( id , drCode , szReason[] )', see below example. The forward remains active regardless of the dr_enabled cvar value which will only control chat\console message. Made by request.
+
+CVars
+
+    dr_enabled <0/1> - Chat\console notification enabled\disabled status.
+        Default: 1 (0=disabled, 1=enabled)
+
+
+Forwards
+
+    client_disconnect_reason( id , drCode , const szReason[] ) - Forward for client_disconnect with reason.
+        id - Player id
+        drCode - Disconnect reason code
+            DR_TIMEDOUT
+            DR_DROPPED
+            DR_KICKED
+            DR_LEVELCHANGE
+            DR_OTHER
+        szReason - Disconnect reason in text form: "Timed out", "Client sent 'drop'", "Kicked", "Dropping fakeclient on level change".
+
+
+Disconnect Reason Codes
+PHP Code:
+enum ReasonCodes
+{
+    DR_TIMEDOUT,
+    DR_DROPPED,
+    DR_KICKED,
+    DR_LEVELCHANGE,
+    DR_OTHER
+} 
+Modules
+
+    Orpheu
+
+
+Installation
+
+    Place compiled (.amxx) file in plugins directory as with any other plugin.
+    Place the SV_DropClient file (found in signatures.zip) in amxmodx\configs\orpheu\functions.
+    For forward to work in your plugin(s), you must have this plugin running (do not #include it).
+
+Changelog:
+
+    v0.6
+        Added 'Dropping fakeclient on level change' disconnect reason.
+    v0.5
+        Added client_disconnect_reason forward for hooking client_disconnect with reason.
+    v0.4
+        Removed Sys_Printf hook since I'm pretty sure it is only used for printing to server console which nobody sees anyway so it's pointless to block. I initially assumed it printed to both server and client consoles.
+        Added block for message #Game_disconnected to prevent players from seeing "Name has left the game" in console.
+        Removed post hook for SV_DropClient since it was not needed.
+            v0.4a
+                Minor code cleanup
+    v0.3
+        Improved signature used for SV_DropClient
+        Removed cvars for controlling type and method, all disconnect types are notified in both chat and console.
+        Added Sys_Printf hook to block the default disconnect message in console.
+    v0.2
+        Added condition to check that a real player is disconnecting. xPaw reported that a notification appeared with the server name (id=0).
+        Changed chat notification from messaging all players individually to a single message to all.
+    v0.1
+        Initial release
+
+

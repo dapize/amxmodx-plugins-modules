@@ -1,0 +1,180 @@
+https://forums.alliedmods.net/showthread.php?p=663892?p=663892
+
+Description:
+This plugin for CS adds 6 new modes for all the grenades. Simply select the grenade, and right click to change the mode. This plugin is based on the plugin mentioned in credits.
+
+Available modes:
+Normal: This is CS's default grenade.
+Proximity: This grenade will explode when it detect a player within a certain radius.
+Impact: This grenade will only explode when it comes in contact with a solid object.
+Trip laser: This is the most complex mode. Throw this at the wall or ceiling, and it will take some time before it will activate.After it activates it will draw a laser. If anyone should blunder into the detection path, the grenade will launch itself in the direction of the victim/ explode (your choice).
+Motion sensor: Like the proximity grenade, this detects players within a certain radius, but will only detonate if that player is moving above a certain speed. To avoid an explosion, crouch or walk around this grenade. Be careful, jumping around a motion sensing grenade is risky business!
+Satchel charge: When you press the +use button (default e) the nade will explode.
+Homing: Seeking the enemy!
+
+Needed modules:
+CStrike
+Engine
+Fakemeta
+HamSandWich
+AmxModX 1.8.0 and above!!!
+
+Features:
+-Control Pannel: To access it, type "amx_nade_mode_menu" or "amx_nmm" in your console.
+-Multilanguage: Has an help command that will show what each mode does in your personal language!
+-Special effects, use a lot of resource, if you want you can disable them from the control pannel.
+-Grenade modes can be selectively enabled or disabled. For example, you can allow player to use the motion sensor mode, but not the proximity mode.
+-Choose whether or not to reset the mode of the next grenade to normal once one is thrown. Useful if you don't like to keep changing the mode every time you buy a grenade.
+-Choose whether or not to display the current mode of the grenade when a player draws the grenade. Useful for forgetful player who don't remember what they set the grenade to last time.
+-Choose whether or not to allow secondary explosions. An exploding grenade will detonate any other grenades close by. If you suspect a trip laser or proximity grenade nearby, you can dispatch it with your own grenade with no danger to yourself.
+-Give infinite grenades. Useful for testing purposes.
+-Team play (can be set or unset by cvar/control pannel)
+-Trip grenades can now be customized when they detect you they will either launch themselves in direction of the victim or imediately explode, your choice.
+-New menu system includes many features, you can choose the grenades you want the plugin to affect + you can customize the float cvar values that control the way that the nade modes behave + save system.
+-Hitpoints system (nades can take damage! YES!!), Secondary explosions ( more fun!!!), organised menu
+-Smart mode for plugin effects (reduces lag!!!) and also Low bandwidth mode
+-Low on CPU
+-Damage settings for almost everything
+-API to make it compatible with other plugins
+-Monstermod support
+
+Installation:
+- text file goes in "addons\amxmodx\data\lang\" folder
+- the sma file must be compiled locally/online and the output .amxx file will go in "addons\amxmodx\plugins\" folder
+
+Usefull links:
+Servers using this plugin
+Multilanguage thread
+
+Changelog:
+Spoiler 
+
+Code:
+Version 3.0
+ - Initial release.
+ 
+Version 3.1
+ - Changing an item on the second page will rebuild the menu and display on the second page.
+ 
+Version 4
+ - Improve to the trip grenade and sounds
+ 
+Version 5
+ - Full grenade support + satchel charge mode
+ 
+Version 5.2
+ - Automatic save system + team bug fix
+ 
+Version 5.5
+ - Nade choose system
+ 
+Version 5.7
+ - New menu system
+ 
+Version 5.8
+ - Added compatibility with Biohazzard/Zombie Plague Mod. The nades will be removed when a player is turned into a zombie
+ 
+Version 5.9
+ - Added new cvar for teamplay the plugin won't follow friendlyfire anymore, bot support
+ 
+Version 5.9b
+ - Bug fix -> zombie
+ 
+Version 6.0
+ - Nade damage control (all of them)
+ 
+Version 6.0b
+ - Nademodes invalid player bug fix + admin spectator bug fix
+ 
+Version 6.0c
+ - Nademodes grenade disapearing bug fix + new feature the plugin can be seen on what servers is played on.
+ 
+Version 7.0
+ - Nademodes limit added, now plugin works with ghw model change, CSX module removed + laser engine bug fix + less cpu usage
+ 
+Version 7.0a
+ - Nademodes invalid entity bug fix, nademodes remove counter bug fix
+ 
+Version 7.0aa
+- Nademodes invalid entity bug fix in play_sound
+ 
+Version 7.0b
+- Nademodes code change, now plugin relies on more modules! (More efficient), change part of the code (no more hardcodes)
+ 
+Version 7.5
+- Nademodes smart plugin effects mode added! Changed damage system! Changed primary menu! Now we have stuff organised! Added Homing grenade!
+ 
+Version 8.0
+- Nademodes added hit points system! Made sec explo more customizable!
+ 
+Version 8.5
+- Fixed all known bugs, added client mode selection!
+ 
+Version 8.6
+- Fixed menu drunk cvar bug, and forward drunk bug
+ 
+Version 8.7
+- Added new cvar to fix the SVC_BAD errors -> use this only if the clients report that problem!!!
+ 
+Version 8.8
+- New grenade shot detection method (supports walls now), HP system for other nades modes (NORMAL,IMPACT,HOMING)
+ 
+Version 8.9
+- Added bot support for trip nades
+ 
+Version 9.0
+- Animation and sound for grenades that have been shot, effects when grenades desintegrate, hp system more configurable
+ 
+Version 9.1
+- Shot method a little different now, supports shot through all entities, added penetration
+ 
+Version 9.2
+- Fixed the smoke grenade block problem, fixed secondary explosions server crash
+ 
+Version 9.3
+- Some small code tweaks, made some predefined values for things that you would like to modify
+ 
+Version 9.4
+- Last adjustments
+ 
+Version 9.5
+- Final fixes and some security mesures, final suggestions, removed update owner cvar (unfortunately nothing else could have been done)
+ 
+Version 9.6
+- Team bug fix, Owner set bug fix, Homing now follows team play, Damage system bug fix 
+ 
+Version 9.61
+- Small unregistration bug fix.
+ 
+Version 9.62
+- Menu position fix, added some small conditions in damage detection, also made the nades that have exploded be ignored
+ 
+Version 9.63
+- Fixed the error within the is_grenade native. 
+ 
+Version 9.7
+- Added more configurations to the MOTION and PROXIMITY modes both support line of sight options, also added delay between explosions for SATCHEL
+ 
+Version 9.8
+- Added new type of effect transmition mode: "Low Bandwidth Mode" - conserve bandwidth as much as possible (useful for servers with many many grenades)
+ 
+Version 9.9
+- Fixed the way the cone angle was calculated, optimized parts of the plugin, added metric and inch unit conversion in the menu for better understanding
+ 
+Version 10
+- Optimized the code, added possibility to remove the normal grenade mode, removed amx_nms feature due to "Info string length exceded" errors, added a special forward for compatibility issues, added support for monstermod
+ 
+Version 11
+- Changemode bug fix, disappearing bug fix, zombie round start bug fix, made menus more understandable, mode switch when limit reached, sound for proximity grenades, smart angle twist for trip grenades, option with remove grenades if player dies, post forward, memory/CPU optimizations
+ 
+Version 11.1
+- Cvar cache fix made all options 0, is_alive error
+
+Version 11.2
+- C4 remove bug fix
+Credits to:
+Grenade Modes by Nomexous
+Shoot Grenades by joaquimandrade
+Testers
+Translators
+Everyone who enjoys having fun with grenades.

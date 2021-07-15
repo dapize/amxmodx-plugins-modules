@@ -1,0 +1,29 @@
+https://forums.alliedmods.net/showthread.php?t=23798
+
+This plugin may work in more than one mod, but I have only tested it in counter-strike which is why I have dubbed it for CS.
+
+Advanced Slow Motion Plugin By KroT@L
+Converted By Seather
+
+Ever want those awesome HLTV effects in realtime? Ever want them in your server? Whether it be LAN or dedicated this plugin will create that for your server.
+
+Be sure to have the module engine_amxx.dll enabled when running this. To do so, go to your modules.ini and uncomment engine_amxx.dll. To uncomment, simply remove the ; in front of the word.
+
+Cvar:
+
+adv_slowmo "abcdef"
+a: c4 explosion in slow motion
+b: last kill in slow motion
+c: grenade kill in slow motion
+d: knife kill in slow motion
+e: hs kill in slow motion
+f: special effect (progressive slowdown)
+
+PM By KRoT@L ::
+Code:
+Release it if you want, and send me a link to the post.
+Plugin .sma Attached.
+
+Any issues with the plugin, such as by the rules, I believe have been addressed by Seather. If not I will PM and see if it can be fixed.
+
+The plugin has one compile error, but still compiles and runs fine in server. Has no errors when running, just that one error in the compiling process.

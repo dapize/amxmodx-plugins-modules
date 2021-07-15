@@ -1,0 +1,61 @@
+https://forums.alliedmods.net/showthread.php?t=43979
+
+
+    This plugin allows you to replace all client's weapon models + sounds to custom skins from your server. In Example: You found a pretty M4A1 model that you want everyone to use cause it's so leet, you can download it and put it onto your server and edit the config file to use the custom M4A1's models. Sounds however only work for melee weapons (IE: knife, crowbar).
+
+
+
+Config file Info:
+
+    Quote:
+    file: | amxmodx/configs/new_weapons.ini
+
+    syntax: | "old model/sound file" "new model/sound file" ["Team"]
+    example : | "models/model.mdl" "models/newmodel.mdl"
+    example : | "sound/weapons/sound.wav" "sound/weapons/newsound.wav" "CT"
+    example : | "models/v_knife.mdl" "models/v_knife2.mdl" "T"
+    example : | "models/p_rocketlauncher.mdl" "models/p_rocketlauncher2.mdl" "Axis"
+
+    new_weapons.ini is read for every map if new_weapons_mapname.ini is not found. (IE: new_weapons_de_dust2.ini)
+
+    Team name that comes after the models/sounds can be both without or with quotes. The team is optional, if no team specified the model/sound will be applied to all players on all teams. If you do specify a team it should be one of the following:
+        T
+        Terrorist
+        Terrorists
+        Blue
+        B
+        Allies
+        1
+        CT
+        Counter
+        Counter-Terrorist
+        Counter-Terrorists
+        CounterTerrorists
+        CounterTerrorist
+        Red
+        R
+        Axis
+        2
+        Yellow
+        Y
+        3
+        Green
+        G
+        4
+
+
+Notes:
+
+        Note 1: The more models + sounds you replace into the config file the less efficient this plugin will become. This doesn't mean that you cannot put a bunch of models + sounds into the config file, nor that it is not recommended, just that if your server experiences higher ping, consider reducing the number of replaced models + sounds.
+        Note 2: By default you can replace a max of 50 v_models + 50 p_models + 50 w_models + 50 sounds. You can change this on lines 5 - 9 of the .sma file then you'll have to recompile+replace the plugin with the new .sma file and you are good2go.
+        Note 3: Remember, the client has to download every model + sound that you are replacing upon entering the server. Don't go overboard please.
+        Note 4: you cannot replace any sound files except for melee weapons.
+        Note 5: Stay away from using symbols in your file and folder names. Example: "sound/weapons/==GHW==/knife_slash1.wav" is a bad name. "sound/weapons/GHW/knife_slash1-2.wav" is also a bad name.
+        Note 6: Can't replace shield models.
+
+
+
+Recommendations:
+FPS Banana (skins)
+sv_downloadurl
+_ 

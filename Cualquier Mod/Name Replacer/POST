@@ -1,0 +1,59 @@
+https://forums.alliedmods.net/showthread.php?t=77401
+
+Name Replacer
+
+Changelog:
+
+* [ 1.1.0 ]
+- added cvars
+- 3 options: name change, kick or ban
+- you can choose the way the name is changed: from list or the last name the player used
+- admins can have immunity
+
+* [ 1.0 ]
+- first released
+
+Plugin details:
+- this is a small but usefull plugin.
+- you can restrict names from a file and give them a replacer.
+- if a player enters on the server/change the name in a restricted name, the player's name will be changed.
+- you need amxx 1.7 or higher.
+
+Credit: Alka
+
+Usage:
+- add in amxmodx/configs/name_list.txt :
+Code:
+name;replacer
+name2;replacer2
+name3;replacer3
+- example:
+Code:
+mut2nt;reserved
+if a player enters on the server/change the name in 'mut2nt', it will be changed it 'reserved'.
+PHP Code:
+#define NAMES        32 // max lines in the file
+#define DELAY        10.0 // after how many seconds the name is checked after the player enters
+#define ACCESS        ADMIN_IMMUNITY // acces needed to have immunity to name checking
+
+new const g_File[] =     "name_list.txt"; // file name 
+
+Cvars:
+namereplacer_mode 0/1/2/3
+0 - disabled
+1 - name change
+2 - kick
+3 - ban
+(default 1)
+
+namereplacer_list 0/1
+0 - the name will be changed to the last name the player has used
+1 - the name will be changed from file
+(default 1 )
+
+For instance:
+- if the cvar is set to 0: if a player has the name 'x' and change it to 'y' (y is restricted from file), his name will be set to 'x'
+- if the cvar is set to 1: if a player has the name 'x' and change it to 'y' (y is restricted from file), his name will be set to x-1 (x-1 is replacer to x from file)
+
+namereplacer_banlenght - ban lenght (default 1200)
+namereplacer_evoyadmins - allow admins to have a restricted name from file (default 0)

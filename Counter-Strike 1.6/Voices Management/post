@@ -1,0 +1,105 @@
+
+
+https://forums.alliedmods.net/showthread.php?t=69006
+
+    Voices Management
+
+
+
+
+    .: Description :.
+
+
+    This plugin is a replacement for a lot of voicecom plugins :
+
+    -Replacement of sv_alltalk cvar with 2 cvars that manage who alive/dead players can hear.
+    -Ability for admins to speak while all other players are muted
+    -Ability for admins to speak to admins only
+    -Ability for admins to hear everyones to prevent players from insulting other players
+    -Ability for admins to mute players
+
+    All of this without changing players settings (muted players via playerlist, voice_modeenable 0)
+
+
+
+    .: Cvars :.
+
+        vm_alives < 0|1|2 >
+
+            Alive players hear : 0:alive teamates - 1:alive players - 2:all players(def: 1)
+
+        vm_deads < 0|1|2 >
+
+            Dead players hear : 0:dead teamates - 1:dead players - 2:all players(def: 2)
+
+
+
+
+    .: Commands :.
+
+        +adminvoice
+
+            As an admin, you will talk to all players and all players will be muted
+
+        +interadminvoice
+
+            As an admin, you will talk to all other admins, players won't be able to hear you
+
+        +adminlisten
+
+            As an admin, you will hear all players
+
+        toggle_adminlisten
+
+            Toggle adminlisten feature
+
+        amx_mute <name/#userid>
+
+            Mute a player untill the map change
+
+        amx_unmute <name/#userid>
+
+            Unmute a player
+
+        say(_team) /vm
+
+            Displays voices settings to players
+
+
+
+    .: Requirements :.
+
+
+    Amxx 1.8+
+    Fakemeta
+    sv_alltalk 1 (set by the plugin)
+    $mod/addons/amxmodx/data/lang/voicesmanagement.txt (see attachment)
+
+
+
+    .: Credits/Thanks :.
+
+    teame06 for clarifications on how convert set_speak to fakemeta
+    Zor for his AdminVoice plugin in witch i didn't have a single look
+
+
+
+    .: Changelog :.
+    Code:
+
+    * v1.0.2 (04-19-08)
+    * -few code corrections
+    * -updated player spawn detection
+    * -added HLTV & BOT checks
+    *
+    * v1.0.1 (03-31-08)
+    * -added colored chat
+    * -added chat command /vm that display voices settings
+    * -inform new players about /vm command
+    * -display adminlisten status when toggle_adminlisten command is used
+    * -added support for amx_show_activity cvar on amx_(un)mute command
+    *
+    * v1.0.0 (03-26-08)
+    * First release
+
+

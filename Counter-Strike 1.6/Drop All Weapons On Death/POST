@@ -1,0 +1,81 @@
+https://forums.alliedmods.net/showthread.php?t=85733
+
+Drop All Weapons On Death
+
+
+            .: Description :.
+
+
+As you know, in cs1.6 you only drop one weapon when you die, on cz you can also drop one nade.
+This plugin makes players drop all their weapons when they die unless command 'death_drop_rules' is sent to restrict some weapons from being dropped.
+Where other plugins fail, this one make the ammo and the bpammo in weaponbox accurate.
+
+
+            .: Commands :.
+
+    death_drop_rules < flags >
+
+        (flags: abcde..., default: "" : drop all weapons/items )
+
+Code:
+
+	a 	p228
+	b	scout
+	c 	hegrenade
+	d 	xm1014	
+	e 	mac10
+	f 	aug
+	g 	smokegrenade
+	h 	elite
+	i 	fiveseven
+	j 	ump45
+	k	sg550
+	l 	galil
+	m 	famas
+	n 	usp
+	o 	glock18
+	p	awp
+	q 	mp5navy
+	r 	m249
+	s 	m3
+	t 	m4a1
+	u 	tmp
+	v	g3sg1
+	w 	flashbang
+	x 	deagle
+	x 	sg552
+	z	ak47
+	{ 	p90
+	|	defuser
+
+
+            .: Changelog :.
+
+Code:
+
+v0.4.0 (14 jul 2013)
+- Added command to restrict some weapons from being dropped
+v0.3.0 (???)
+- Lots of fixes
+v0.1.6 (14 mar 2010)
+- Fixed stucked weapons bug
+v0.1.5 (13 feb 2010)
+- Fixed stucked weapons bug
+- Added support for No Sil plugin by XxAvalanchexX (still waiting for someone to confirm it works...)
+v0.1.4 (18 jul 2009)
+- Added Cz Bots support
+v0.1.3
+- Use ExecuteHamB so it supports some plugins as weapon physics
+v0.1.2 (29 mar 2009)
+- cache allocated strings
+v0.1.1
+- fixed wrong ammo was set in m249 weaponboxes
+- removed useless line in formatting model name
+v0.1.0
+- fixed nades were not exploding when you had pulled out the pin
+v0.0.3 (20 feb 2009)
+- changed the way we retrieve players weapons
+v0.0.2 (17 feb 2009)
+- now removes all packed weapons
+
+

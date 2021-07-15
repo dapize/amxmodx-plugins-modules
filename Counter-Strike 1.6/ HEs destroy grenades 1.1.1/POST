@@ -1,0 +1,23 @@
+https://forums.alliedmods.net/showthread.php?t=229457
+
+When a HE grenade explodes, it also detonates grenades that are nearby. Demonstration video: http://www.youtube.com/watch?&v=VG96m52Ffkg
+
+Cvars:
+
+    hdg_affect_radius - affect radius. Default 350.
+
+    hdg_survival_chance - a chance (default 3% (+ some randomized distance chance)) for a grenade to survive an explosion of a nearby HE grenade. Set 0 to disable.
+
+
+
+Installation:
+
+    Install latest Orpheu.
+    Put attached signatures to addons/amxmodx/configs/
+    Compile the source file localy.
+
+
+Credits:
+
+Arkshine for various help, Orpheu signatures, CSSDK.
+ConnorMcLeod for help getting the grenade type correctly. 

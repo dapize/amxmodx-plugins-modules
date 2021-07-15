@@ -1,0 +1,431 @@
+https://forums.alliedmods.net/showthread.php?t=5055
+
+
+This is a port of the Sank Sounds Plugin from AdminMod to AMXX
+it has all its features + some new ones (MP3 SUPPORT)
+
+Players can use keyword in chat and than wav files will be played keyword/wavfile combos are stored in SND-LIST.CFG and not hardcoded.
+
+Put the configfile (snd_list.cfg) into this folder: "addons/amxmodx/configs"
+
+The rar file contains some sounds (original sank sounds + new) and the SND-LIST.7z contains an example SND-LIST.CFG.
+
+Code:
+/*
+* Credits:
+*    - Luke Sankey                ->    original author
+*    - HunteR                ->    modifications
+*
+* Functions included in this plugin:
+*    mp_sank_sounds_download    1/0        -    turn internal download system on/off
+*    amx_sound                -    turn Sank Sounds on/off
+*    amx_sound_help                -    prints all available sounds to console
+*    amx_sound_play <dir/sound>        -    plays a specific wav/mp3/speech
+*    amx_sound_add <keyword> <dir/sound>    -    adds a word/wav/mp3/speech
+*    amx_sound_reload <filename>        -    reload your snd-list.cfg or custom .cfg
+*    amx_sound_remove <keyword> <dir/sound>    -    remove a word/wav/mp3
+*    amx_sound_write <filename>        -    write all settings to custom .cfg
+*    amx_sound_reset <player>        -    resets quota for specified player
+*    amx_sound_debug                -    prints debugs (debug mode must be on, see define below)
+*    amx_sound_ban <player>            -    bans player from using sounds for current map
+*    amx_sound_unban <player>        -    unbans player from using sounds for current map
+*    amx_sound_top <x>            -    shows the top <x> most played keywords (leave <x> away for top 10)
+*
+* Config file settings:
+*    SND_WARN                 -     The number at which a player will get warned for playing too many sounds each map
+*    SND_MAX                    -    The number at which a player will get muted for playing too many sounds each map
+*    SND_MAX_DUR                -    The maximum amount of seconds a player can play sounds each map (float )
+*    SND_JOIN                -    The Sounds to play when a person joins the game
+*    SND_EXIT                -    The Sounds to play when a person exits the game
+*    SND_DELAY                -    Minimum delay between sounds (float)
+*    SND_MODE XX                -    Determinates who can play and who can hear sounds (see readme.txt for details)
+*    SND_IMMUNITY "XYZ"            -    Determine the access levels which shall have immunity to warn/kick/ban
+*    SND_OBEY_DUR XX                -    Determine who shall obey duration before next sound will be played
+*    EXACT_MATCH 1/0                -    Determinates if plugin triggers on exact match, or partial speech match
+*    ADMINS_ONLY 1/0                -    Determinates if only admins are allowed to play sounds
+*    DISPLAY_KEYWORDS 1/0            -    Determinates if keywords are shown in chat or not
+*    FREEZE_TIME_CON XX            -    Time in seconds to wait till first sounds are played (applies only to connect/disconnect sounds)
+*
+* Commands available for each player:
+*    amx_sound_help                -    prints all available sounds to console
+*    say "/soundson"                -    now the player can hear sounds again
+*    say "/soundsoff"            -    player disables ability to hear sounds
+*    say "/sounds"                -    shows a list of all sounds
+*
+History:
+Code:
+* v1.9.2: (2021.07.11)
+*	- changed:
+*		- adjustments to array initialization
+*
+* v1.9.1: (2021.07.02)
+*	- changed:
+*		- using precache generic for all types (instead of precache sound for WAVs)
+*
+* v1.9.0: (2020.09.10)
+*	- changed:
+*		- CVAR "mp_sank_sounds_obey_duration" replaced with config "SND_OBEY_DUR"
+*		- CVAR "mp_sank_sounds_freezetime" replaced with config "FREEZE_TIME_CON"
+*	- fixed:
+*		- Obey duration for admins would prevent them from playing any sound
+*
+* v1.8.9: (2019.10.03)
+*	- added:
+*		- Option to allow bots to use sounds
+*	- fixed:
+*		- Always playing first sound.
+*
+* v1.8.8: (2019.05.05)
+*	- fixed:
+*		- Players had to wait up to SND_DELAY after map change before being able to play sounds
+*		- Some warnings not being displayed
+*		- Issue where downloading was not working for WAV files (due to "developer 1" fix)
+*
+* v1.8.7: (2017.11.26)
+*	- fixed:
+*		- console warnings when "developer" is set to "1"
+*		- misc
+*	- changed:
+*		- support to also load files from "<MOD>_<xxx>" folders
+*
+* v1.8.6: (22.05.2016)
+*    - fixed:
+*        - players could get stuck in a "spectator" mode state or being kicked if trying to play a sound with exactly TOK_LENGTH length
+*
+* v1.8.5: (04.05.2014)
+*    - added:
+*        - support to also load files from "<MOD>_downloads" folder
+*    - fixed:
+*        - issue with ADMINS_ONLY and RCON access level
+*
+* v1.8.4: (06.01.2014)
+*    - fixed:
+*        - admins could get spammed with "You are muted" messages
+*
+* v1.8.3: (21.10.2013)
+*    - fixed:
+*        - ADMINS_ONLY setting was ignored
+*
+* v1.8.2: (01.09.2013)
+*    - fixed:
+*        - exit sounds could be replaced by keyword sounds
+*
+* v1.8.1: (14.03.2013)
+*    - fixed:
+*        - determination if sound can be played for admins
+*        - "amx_sound_add" could add empty keywords if sound was invalid
+*        - "amx_sound_add" is not checking sounds if they exist anymore
+*    - changed:
+*        - increased motd webpage link length to 255 characters
+*
+* v1.8.0: (11.01.2012)
+*    - fixed:
+*        - adding new sounds with console command could add it but it would not be available
+*    - changed:
+*        - dynamic arrays are now used to store key/sound data to remove limits
+*        - saving to default config file is now allowed
+*
+* v1.7.1: (11.08.2011)
+*    - fixed:
+*        - WAVs not downloading and producing error messages
+*
+* v1.7.0: (08.08.2011)
+*    - added:
+*        - further checks for bad configfiles
+*        - new option SND_IMMUNITY (defines all levels that shall get immunity)
+*        - info when used last sound
+*        - amx_sound_top <x> shows the top <x> (default 10) most played keywords during current map
+*        - using keywords followed by a ! (eg: haha!) will play the sound bound to a location (WAVs only)
+*          you can move away from the sound. NO config change needed
+*    - changed:
+*        - WAVs are not bound to <mod-dir>/sound folder anymore (config change needed unfortunately)
+*          all sounds now need the full path (eg: haha; sound/misc/haha.wav)
+*
+* v1.6.6d: (03.07.2009)
+*    - fixed:
+*        - speech files not being played
+*
+* v1.6.6c: (30.06.2009)
+*    - fixed:
+*        - removed debug message
+*
+* v1.6.6b: (29.03.2009)
+*    - fixed:
+*        - runtime error
+*        - if SND_JOIN or SND_JOIN was not at the beginning and more sounds were added afterwards, those new sounds overwrote previous sounds
+*
+* v1.6.6: (03.03.2009)
+*    - fixed:
+*        - last entry in configfile was not sorted
+*        - runtime error with keywords without any sound
+*        - exploit where SND_JOIN and SND_EXIT could be used as keywords
+*    - changed:
+*        - SND_JOIN and SND_JOIN do not have to be before any other keyword
+*
+* v1.6.5b: (22.01.2009)
+*    - changed:
+*        - removed warning for unsupported mp3s (they are supported)
+*
+* v1.6.5: (14.01.2009)
+*    - fixed:
+*        - wav detection for bad files
+*
+* v1.6.4: (21.12.2008)
+*    - added:
+*        - warning for unsupported mp3 files
+*    - changed:
+*        - mp3 detection code rewritten
+*
+* v1.6.3: (29.02.2008)
+*    - fixed:
+*        - runtime error if more sounds added than defined in MAX_KEYWORDS
+*        - commenting SND_JOIN and SND_EXIT (adding # or // infront of them) made the following sounds to be added to these options
+*    - changed:
+*        - CVAR "mp_sank_sounds_obey_duration" is now a bitmask (see readme.txt)
+*
+* v1.6.2:
+*    - fixed:
+*        - removed debug message
+*        - admins are not included in overlapping check anymore
+*        - non admins could see sounds that are for admins only
+*        - bug when adding and removing sounds ingame to list (wierd keywords and sounds)
+*    - added:
+*        - "PLAY_COUNT_KEY" and "PLAY_COUNT" to data structure to count how often a key and sound has been used
+*        - messages for players when enabling/disabling sounds and if players have to wait cause of delay
+*    - changed:
+*        - sank sounds is now precaching sounds after plugin init (fakemeta modul needed)
+*        - no more engine, but therefore fakemeta is needed
+*        - minor code tweaks
+*
+* v1.6.0: (16.4.2007)
+*    - fixed:
+*        - speech sounds not being played
+*        - join / exit sound duration was incorrect
+*        - SND_WARN / SND_MAX error checking could display wrong error
+*    - added:
+*        - access can be defined for every sound and keyword seperately
+*    - changed:
+*        - partly rewritten
+*        - way of saving data
+*        - sounds when enabling and disabling Sank Sounds are not precached anymore ( hard coded )
+*        - many code improvements
+*
+* v1.5.6:
+*    - fixed:
+*        - sounds located in <MODDIR>/sounds/ (no subfolder) not being played if dead and alive not being splitted
+*        - long lines not being parsed correctly
+*        - players could play one more sound than allowed
+*
+* v1.5.5:
+*    - fixed:
+*        - error in mp3 calculation ( once again :( )
+*    - added:
+*        - additional debug info for mp3's when compiled in DEGUB_MODE 1
+*
+* v1.5.4:
+*    - fixed:
+*        - error in mp3 calculation
+*        - when using "mapnameonly" option, following options have been ignored
+*    - added:
+*        - minor detection for damaged/invalid files
+*    - changed:
+*        - both "SND-LIST.CFG" and "snd-list.cfg" will work now ( linux )
+*        - code improvements
+*        - faster config parsing/writing
+*
+* v1.5.3:
+*    - fixed:
+*        - admin being able to play sounds when "mp_sank_sounds_obey_duration" was on
+*    - added:
+*        - CVAR: "mp_sank_sounds_motd_address" to use a website to show all sounds ( empty cvar = no website will be used )
+*
+* v1.5.2:
+*    - fixed:
+*        - support for SND_DELAY was accidently removed
+*        - some possible minor bugs
+*    - added:
+*        - SND_MAX_DUR: maximum of seconds a player can play sounds each map
+*        - two new options for SND_MODE ( read help for more information )
+*
+* v1.5.1b:
+*    - fixed:
+*        - runtime error in mp3 calculation
+*
+* v1.5.1:
+*    - fixed:
+*        - calculation for MP3's encoded with MPEG 2
+*    - added:
+*        - saying "/soundlist" will now show sound list like "/sounds" does
+*        - CVAR: "mp_sank_sounds_obey_duration" to determine if sounds may overlap or not ( default: 1 = do not overlap )
+*
+* v1.5.0b:
+*    - fixed:
+*        - rare runtime error
+*
+* v1.5.0: ( AmxModX 1.71 or better ONLY )
+*    - fixed:
+*        - sounds being not in a subfolder ( eg: sound/mysound.wav ) will now be played
+*        - reconnecting to reset quota will not work anymore
+*        - no more overlapping sounds ( Join and Exit sounds will still overlap other but others cannot overlap them )
+*        - amx_sound_reset now accepts IDs too
+*        - sound quota could be increased even if no sound was played
+*    - added:
+*        - sound duration is now calculated
+*    - changed:
+*        - SND_DELAY does not affect admins anymore
+*        - SND_SPLIT has been replaced with more customizable SND_MODE
+*        - removed support to disable MP3
+*
+* v1.4.7:
+*    - fixed:
+*        - keywords with admin and public sounds, could block normal players from playing normal sounds
+*        - runtime error which could stop plugin to work
+*        - message telling players to wait till next sound can be played is not displayed on every word anymore
+*
+* v1.4.5:
+*    - fixed:
+*        - ADMINS_ONLY was not working always
+*        - players could only play less sound than specified in SND_MAX
+*        - runtime error with amx_sound_reload
+*    - added:
+*        - sounds can now also be used in team chat
+*        - amx_sound_unban to unban players
+*    - changed:
+*        - keyword check tweaked
+*        - amx_sound_ban now do not expect additional parameter "on / off" or "1 / 0"
+*
+* v1.4.3:
+*    - fixed:
+*        - keywords without or with wrong files will not be added anymore
+*        - possible errors fixed
+*        - error with MOTD display fixed
+*
+* v1.4.2b:
+*    - fixed:
+*        - compile error when disabling mp3 support
+*
+* v1.4.2:
+*    - fixed:
+*        - players could be banned from sounds after reconnect
+*    - added:
+*        - option to include sounds from "half-life.gcf" and <current mod>.gcf
+*
+* v1.4.1:
+*    - fixed:
+*        - when setting DISPLAY_KEYWORDS to 0 chat was disabled
+*
+* v1.4.0:
+*    - added:
+*        - option to load packages of sounds, packages cycle with each map-change (packages must be numbered)
+*        - ability to ban people from using sounds (only for current map) ( amx_sound_ban <player> <1/0 OR on/off> )
+*    - changed:
+*        - precache method changed
+*        - all keywords are now stored into buffer, even of those sounds that are not precached
+*        - code improvements
+*
+* v1.3.7:
+*    - added:
+*        - "DISPLAY_KEYWORDS" to config, it determinates if keywords are shown in chat or not
+*        - option to load specific sounds only on specific maps
+*    - changed:
+*        - "SND_DELAY" is now a float
+*
+* v1.3.5:
+*    - added:
+*        - with "/soundson" and "/soundsoff" each player can activate/deactivate the ability to hear sounds
+*
+* v1.3.4:
+*    - fixed:
+*        - error where some players could not hear any sound
+*    - changed:
+*        - some log messages got better checks
+*        - reimplemented check for bots
+*
+* v1.3.3:
+*    - added:
+*        - cvar "mp_sank_sounds_freezetime" to define when first connect/disconnect sounds are played after mapchange (in seconds)
+*
+* v1.3.2:
+*    - fixed:
+*        - mp3 support not working
+*    - changed:
+*        - mp3 now dont need to be in sound folder but anywhere you want (anywhere in your mod folder though)
+*            just specify the correct path (eg: music/mymusic/my.mp3 or sound/testmp3/test.mp3 or mainfolder.mp3)
+*        - amx_sound_debug can now also be used if debug mode is off (this function prints the sound matrix)
+*
+* v1.3:
+*    - fixed:
+*        - fixed prob where strings were copied into other strings with no size match
+*        - removed bot detection (maybe this was causing some problems, playing sounds to bots does not do any harm)
+*        - admin sounds could not be played (eg: hallo; misc/hi.wav;@misc/hi2.wav -> hi2.wav was not played, even by admins)
+*    - added:
+*        - type "/sounds" in chat to get a MOTD window with all sounds available (not all mods support MOTD window)
+*        - ability for speech sounds (like the AmxModX's speechmenu)
+*        - admin check to "amx_sound_debug" so in debugmode only admins can use it
+*        - list is now sorted by name for more readable output (sort by Bailopan) (sort can be turned off by define)
+*
+* v1.2.5:
+*    - added a cvar to enable or disable auto download (change will take place after restart/mapchange)
+*
+* v 1.2.4 :
+*    - added mp3 support (they have to be in <Mod-Dir>/sound too) (engine module needed therefore) (+ hotfix: wavs not being played)
+*    - changed the way of initializing each sound file (if bad file it wont be loaded and error msg will be printed)
+*    - changed SND_KICK to SND_MAX
+*    - increased default defines ( words: 40 - > 80 / each wavs: 10 -> 14  / file chars: 30 -> 60 )
+*    - fixed bug for 32 players
+*    - increased memory usage for variables to 64K (should fix probs)
+*    - while parsing there is now a check if file exists (if not it wont be put in list)
+*
+* v1.1.3 :
+*    - fixed bug with spaces between keywords and wavs
+*    - multiple Join and Exit sounds can now be used
+*    - fixed bug where connect and disconnect sound have not been played
+*    - fixed bug where dead players could not hear sounds
+*    - added bot check
+*    - added option to only allow admins to play sounds
+*
+* v1.0.2 (original 4.1 but this is AmxModX) (port to Amx Mod X by White Panther):
+*    - initial release for AmxModX
+*    - renamed commands to fit with AmxModX
+*    - Admin sounds cannot be seen by normal people when using amx_sound_help
+*    - sounds are precached from file
+*    - fix: check if soundfile exist before precache (that should solve some probs)
+*    - fix: if chat message was longer than 29 chars the first wav in cfg was played
+VERY IMPORTANT ( 29.02.2008 )
+Download the help.zip and READ it (English and German version included)
+
+Previous downloads: 
+plugin: 15002 + 79 + 270 + 386 + 1143 + 88 + 563 + 246 + 7736 + 1600 + 677 + 245
++ 1192 (1.6.5b)
++ 882 (1.6.6)
++ 2111 (1.6.6b)
++ 99 (1.6.6c)
++ 15971 (1.6.6d)
++ 2071 (1.8.1)
++ 502 (1.8.2)
++ 637 (1.8.3)
++ 6693 (1.8.4)
++ 2169 (1.8.6)
++ 1146 (1.8.9)
++ 893 (1.9.0)
++ 18 (1.9.1)
+help: 5381 + 3488 + 4940 + 7625
++ 14947 (1.6.6d)
++ 10584 (1.8.8 )
++ 474 (1.8.9)
+snd-list: 467
++ 32782 (1.6.6d)
++ 69 (1.7.0)
++ 9020 (1.7.1)
++ 1985 (1.8.7)
++ 365 (1.8.8 )
++ 15731 (1.8.9)
+
+
+Updating to 1.9.0 or greater will require some little cfg file changes ( sry about that )
+just add "sound/" (without quotes) to every WAV (so <mod-dir> is root)
+eg: misc/haha.wav should now be sound/misc/haha.wav
+
+Since 1.9.0 new configs were added and CVARs removed. Check changelog or help.7z for more info.
+
+Source is also available at github: https://github.com/ZTHawk/HL1_SankSounds

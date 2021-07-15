@@ -1,0 +1,26 @@
+https://forums.alliedmods.net/showthread.php?t=118626
+
+
+ealistic FlashBang
+
+Version: 1.0.1
+
+Descripcion:
+This is a more realistic Flashbang, I add an effect of hallucination and a sound. Which these effects make your stay completely crazy
+
+Video:
+Video
+
+cvar:
+PHP Code:
+FLenable = register_cvar("amx_rfl_enable", "1")
+FLcolor = register_cvar("amx_rfl_color", "128 128 128")
+FLradius = register_cvar("amx_rfl_radius","50")
+FLlightcolor = register_cvar("amx_rfl_lightcolor","255 255 255")
+FLsound = register_cvar("amx_rfl_sound", "1") 
+Credits:
+Asd - Idea
+XxAvalanchexX - Flashbang Dynamic Light plugin
+Arkshine - UTIL_FixedUnsigned16 function link
+Ciio & IneedHelp - Video
+

@@ -1,0 +1,54 @@
+[en]
+VM_ALREADY_INUSE =  ** !g[VM] !nSorry, an admin already uses Super Admin talk !!
+VM_ADMIN_TALK =  ** !g[VM] !nListen to admin !t%s !n!!
+VM_INTER_START =  ** !g[VM] !t%s !ntalks to admins.
+VM_INTER_STOP =  ** !g[VM] !t%s !nstopped talking to admins.
+VM_MUTE_ADMIN = You can't mute an admin.
+VM_AR_MUTED = This player is already muted.
+VM_MUTED = Player successfully muted.
+VM_NOT_MUTED = This player is not muted.
+VM_UNMUTED = Player successfully unmuted.
+VM_LISTEN_STATUS =  ** !g[VM] !nYour AdminListen status is now : !g%s
+VM_ALIVES_STATUS =  ** !g[VM] !nAlive players hear !t%L!n.
+VM_DEADS_STATUS =  ** !g[VM] !nDead players hear !t%L!n.
+VM_DEADS_TEAMATES = dead teamates
+VM_DEADS = all dead players
+VM_ALL = all players
+VM_ALIVES_TEAMATES = alive teamates
+VM_ALIVES = alive players
+VM_ANNOUCE =  ** !g[Voices Management] !ntype !t/vm !nin chat to read voices settings
+VM_MUTE_ACTIVITY = has muted %s
+VM_UNMUTE_ACTIVITY = has unmuted %s
+
+[fr]
+VM_ALREADY_INUSE =  ** !g[VM] !nDesole, un admin utilise deja le Super Admin talk !!
+VM_ADMIN_TALK =  ** !g[VM] !nEcoutez l'admin !t%s !n!!
+VM_INTER_START =  ** !g[VM] !t%s !nparle aux admins.
+VM_INTER_STOP =  ** !g[VM] !t%s !nne parle plus aux admins.
+VM_MUTE_ADMIN = Tu ne peux pas muter un admin.
+VM_AR_MUTED = Jouer deja mute.
+VM_MUTED = Joueur mute.
+VM_NOT_MUTED = Ce joueur n'est pas mute.
+VM_UNMUTED = Ce joueur n'est plus mute.
+VM_LISTEN_STATUS =  ** !g[VM] !nTon statut AdminListen est maintenant sur : !g%s
+VM_ALIVES_STATUS =  ** !g[VM] !nLes joueurs vivants entendent !t%L!n.
+VM_DEADS_STATUS =  ** !g[VM] !nLes joueurs morts entendent !t%L!n.
+VM_DEADS_TEAMATES = leurs coequipiers morts
+VM_DEADS = tous les joueurs morts
+VM_ALL = tous les joueurs
+VM_ALIVES_TEAMATES = leurs coequipiers vivants
+VM_ALIVES = tous les joueurs vivants
+VM_ANNOUCE =  ** !g[Voices Management] !nTape !t/vm !ndans le tchat pout connaitre les reglages des voix
+VM_MUTE_ACTIVITY = a mute %s
+VM_UNMUTE_ACTIVITY = a demute %s
+
+[de]
+VM_ALREADY_INUSE =  ** !g[VM] !nEntschuldige, ein anderer Admin benutzt bereits Super Admin talk !!
+VM_ADMIN_TALK =  ** !g[VM] !nHoer dem Admin zu !t%s !n!!
+VM_INTER_START =  ** !g[VM] !t%s !nspricht mit den Admins.
+VM_INTER_STOP =  ** !g[VM] !t%s !nspricht nicht mehr mit den Admins.
+VM_MUTE_ADMIN = Du kannst keinen Admin stumm schalten.
+VM_AR_MUTED = Dieser Spieler ist bereits stumm geschaltet.
+VM_MUTED = Spieler erfolgreich stumm geschaltet.
+VM_NOT_MUTED = Dieser Spieler ist nicht stumm geschaltet.
+VM_UNMUTED = Spieler erfolgreich frei geschaltet.

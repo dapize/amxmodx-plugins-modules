@@ -1,0 +1,39 @@
+https://forums.alliedmods.net/showthread.php?t=1112
+
+Hi,
+
+just found the original plugin here in the forum. I think there is no need of an explanation...
+
+***Update(19.04.04) - New version out 0.16.2
+***Update(27.07.04) - Not directly an update, but steam plugin with delay now available from here
+
+changelog:
+---------ver 0.16.2---------
+
+WON and Steam
+
+* changed cvars
+- amx_maxping -> amx_hpk_ping
+- amx_maxping_check -> amx_hpk_check
+- amx_maxping_tests -> amx_hpk_tests
+
+* added amx_command
+- amx_hpk - displays status of the plugin and syntax to configure it
+
+* added cvar
+- amx_hpk_delay - Delays ping checking after connect (default 1min, use amx_hpk to configure)
+
+---------ver 0.16.1---------
+
+* added cvars
+- amx_maxping //lowest average ping to be kicked
+- amx_maxping_check //time between checks
+- amx_maxping_tests //number of checks to be performed before kick
+
+* modified the version from 0.9.4 (OLO) to 0.16.1 (amxx)
+
+* added log entry for amxx logging
+
+cu
+
+shadow

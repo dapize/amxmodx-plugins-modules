@@ -1,0 +1,66 @@
+[en]
+HPK_COMMAND = <ping to get kicked> <checks before kicks> <time between checks> <delay before first check in sec.>
+WARNING_MESSAGE = ^4[HPK]^1 Players with more than^4 %d^1 of ping will be kicked.
+KICK_MESSAGE = ^4[HPK]^1 Player^4 %n^1 has been disconnected because his ping is greater than^4 %d.
+KICK_MESSAGE2 = You got kicked because your ping is too high.
+
+[de]
+HPK_COMMAND = <Maximal erlaubter Ping> <Prüfungen vor dem Kick> <Zeit zwischen den Prüfungen> <Verzögerung vor der ersten Prüfung in Sek.>
+WARNING_MESSAGE = ^4[HPK]^1 Spieler mit einem höheren Ping als^4 %d^1 werden gekickt.
+KICK_MESSAGE = ^4[HPK]^1 Spieler^4 %n^1 wurde gekickt weil sein Ping höher als^4 %d war.
+KICK_MESSAGE2 = Du wurdest gekickt weil dein Ping zu hoch war.
+
+[sr]
+HPK_COMMAND = <koji ping da kikuje> <provera pre kika> <vreme izmedju provera> <vreme pre prve provere u sekundama>
+WARNING_MESSAGE = ^4[HPK]^1 Igraci sa pingom vecim od^4 %d^1 ce biti kikovani.
+KICK_MESSAGE = ^4[HPK]^1 Igrac^4 %n^1 se diskonektovao jer mu je ping veci od^4 %d.
+KICK_MESSAGE2 = Kikovani ste zbog previsokog pinga.
+
+[tr]
+HPK_COMMAND = <kicklenmek icin ping> <kick oncesi kontroller> <kontroller arasindaki sure> <ilk kontrol oncesi sn. suresi>
+WARNING_MESSAGE = ^4[HPK]^1 Pingi^4 %d^1 ustu olan oyuncular kicklenecek.
+KICK_MESSAGE = ^4[HPK]^4 %n^1 oyuncusunun pingi^4 %d^1 ustunde oldugundan kicklendi.
+KICK_MESSAGE2 = Yuksek ping nedeniyle kicklendin.
+
+[es]
+HPK_COMMAND = <ping para ser expulsado> <chequeos antes de expulsion> <tiempo entre chequeos> <delay antes del primer chequeo en segundos.>
+WARNING_MESSAGE = ^4[HPK]^1 Jugadores con mas de^4 %d^1 de ping seran expulsados.
+KICK_MESSAGE = ^4[HPK]^1 Jugador^4 %n^1 fue expulsado porque su ping era mayor que^4 %d.
+KICK_MESSAGE2 = Fuiste expulsado porque tu ping era muy alto.
+
+[bp]
+HPK_COMMAND = <Max ping permitido> <quantidade de verificoes> <tempo entre verificacoes> <delay antes da primeira verificacao.>
+WARNING_MESSAGE = ^4[HPK]^1 Jogadores com mais de^4 %d^1 de ping serao kickados.
+KICK_MESSAGE = ^4[HPK]^1 Jogador^4 %n^1 foi disconectado porque seu ping esta acima de^4 %d.
+KICK_MESSAGE2 = Voce foi kickado porque seu ping esta alto.
+
+[ro]
+HPK_COMMAND = <ping pentru a primii kick> <Verificari inainte de kick> <Timp inainte de verificare> <Intarzierea inainte de prima verificare in secunde>
+WARNING_MESSAGE = ^4[HPK]^1 Jucatori cu ping-ul mai mare de ^4 %d^1 vor primii kick.
+KICK_MESSAGE = ^4[HPK]^1 Jucatorul^4 %n^1 a fost deconectat deoarece ping-ul sau este mai mare decat^4 %d.
+KICK_MESSAGE2 = Ai primit kick pentru ca ping-ul tau e prea mare.
+
+[sk]
+HPK_COMMAND = <ping za ktory vyhodit> <pocet kontrol pred vyhodenim> <cas medzi kontrolami> <cas pred prvou kontrolou v sek.>
+WARNING_MESSAGE = ^4[HPK]^1 Hraci s horsim pingom ako^4 %d^1 budu vyhodeni.
+KICK_MESSAGE = ^4[HPK]^1 Hrac^4 %n^1 bol vyhodeny pretoze jeho ping bol vyssi ako ^4 %d.
+KICK_MESSAGE2 = Prilis vysoky ping.
+
+[cn]
+HPK_COMMAND = <ping被踢> <检查前踢出> <检查间隔时间> <第一次检查之前的延迟>
+WARNING_MESSAGE = ^4[HPK] ^1ping超过 ^3%d ^1ms的玩家将被踢出。
+KICK_MESSAGE = ^4[HPK] ^1玩家^3%n ^1已断开连接，因为他的^4ping ^1大于 ^4%d ^1ms。
+KICK_MESSAGE2 = 你被踢了，因为你的ping太高了。
+
+[ru]
+HPK_COMMAND = <Пинг для получения Кика> <проверки перед Киками> <время между проверками> <задержка до первой проверки в секундах>
+WARNING_MESSAGE = ^4[HPK]^1 Игроки с более чем^4 %d^1 пинга будут кикнуты.
+KICK_MESSAGE = ^4[HPK]^1 Игрок был отсоединен из за пинга больше чем^4 %d.
+KICK_MESSAGE2 = Вы были кикнуты из за высокого пинга.
+
+[al]
+HPK_COMMAND = <ping-u per te marr kick> <shqyrtimet para kick-ut> <koha midis kick-eve> <vonesa para shqyrtimit te pare (sekonda)>
+WARNING_MESSAGE = ^4[HPK]^1 Lojtaret me ping me te madh se ^4%d^1 do te kick-ohen. 
+KICK_MESSAGE = ^4[HPK]^1 Lojtari^4 %n^1 eshte diskonektuar sepse ping-u i tij ishte me i madh se^4 %d.
+KICK_MESSAGE2 = Ti u kick-ove pasi ping-u yt ishte shume i larte.
+

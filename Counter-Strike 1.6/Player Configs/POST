@@ -1,0 +1,73 @@
+https://forums.alliedmods.net/showthread.php?p=761118
+
+
+            Player Configs
+
+            (make your users able to load the configs from spawn,forest in seconds)
+
+    description
+
+        This plugin makes your users able to:
+
+        Save their configs. Make them public and to be autoloaded.
+        Load their configs.
+        Load configs from other players that save their configs as public.
+        Load top world player configs.
+
+        I'm not a great gamer so i don't bother very much with the configs but i'm a server owner and this plugin is a great sucess on it. There are some suckers that even go to my server and got to spectator just to use this. They love to test the configs from SpawN, forest, walle. You know.
+
+        It ships with 3 top player configs:
+        forest,potti,spawn
+
+        To add more put config files in "configs\topPlayersConfigs"
+        The config file name must have the extension ".cfg". It's name will be used as the top player name. So if you want to add the config from the player "Ave", put in there a file named Ave.cfg
+
+    cvars
+
+        playerconfs_enabled - 0|1 (plugin enabled/disabled)
+
+        /* CHAT MESSAGES */
+        playerconfs_msg_save (Announcing that a player has saved his configs)
+        playerconfs_msg_load (Announcing that a player has loaded his configs)
+        playerconfs_msg_loadother (Announcing that a player has load configs from other server's player)
+        playerconfs_msg_loadtop (Announcing that a player has load configs from a top player)
+
+    commands
+
+        playerconfigs
+        playerconfs
+        say playerconfigs
+        say playerconfs
+
+        The commands do the same. They open a menu where you can manage the configs. Admins will have an extra entry to manage the top player configs.
+
+    modules
+
+        hamsandwich
+        sqlite
+
+    screenshots
+
+        Main Menu
+        Saving Config - Selection Options
+        Selecting a Top Player to load the config of
+        After loading a Top Player Config
+
+    notes
+
+        If you're wondering what "config" means: the collection of your user defined setting. The crosshair, the sensitivy, the sound, etc.
+
+    extra
+
+        Thanks bomnacama for giving my the idea for this plugin and for having forced me to post it with colours and identation.
+
+    changelog
+
+        version 1.1:
+
+            I was wrongly using RegisterHamFromEntity. I thought that it should be used to register forwards for singular entities.
+
+    to do
+
+        Multi-language support.
+        Use enableHam and disableHam to improve the plugin performance when there aren't configs to be autoloaded.

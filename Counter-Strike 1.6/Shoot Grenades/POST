@@ -1,0 +1,23 @@
+Shoot Grenades
+
+description
+
+    With this plugin you can shoot grenades (including c4) making them explode.
+
+video
+
+    http://www.youtube.com/watch?v=8qwMHBCbXpk
+
+cvars
+
+    shoot_c4 0 - disabled , 1 - ct's can shoot it, 2 - everybody can shoot it
+    shoot_smoke 0 - disabled , 1 - enabled
+    shoot_flash 0 - disabled , 1 - enabled
+    shoot_he 0 - disabled , 1 - enabled
+
+servers using this plugin
+
+
+I know that exists one plugin similar to this one but, i believe this is better coded.
+
+Thanks to Connor, arkshine and stupok for support.

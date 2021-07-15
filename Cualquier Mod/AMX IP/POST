@@ -1,0 +1,16 @@
+https://forums.alliedmods.net/showthread.php?t=43818
+
+[b]Description[b]
+This plugin enables an admin to find out a player's ip by typing in amx_ip <name>. The ip prints in the console.
+
+Version
+1.0
+
+Commands
+amx_ip <name>
+
+Acknowledgments
+Suicid3, as this is his coding.
+
+To Come:
+Tomorrow I'll make the IP print out in game too.

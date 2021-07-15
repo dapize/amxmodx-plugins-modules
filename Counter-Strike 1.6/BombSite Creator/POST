@@ -1,0 +1,81 @@
+https://forums.alliedmods.net/showthread.php?t=89970
+
+BS Creator
+
+Manager of BombSites.
+
+version 1.3
+ML supported
+
+Description
+Plugin allow you create / modify / delete BS on each map. You have simple menu to use.
+
+Modules
+<engine>
+
+Configuration
+Main file is: configs/bs_creator/bsconfig
+Quote:
+;Set to 0 if you want unable menu with configuration (passive mode)
+MENU = 1
+;What you want to log
+;a - saving file
+;b - editing BS
+;c - adding BS
+;d - deleted BS
+;e - restoring default BSs
+LOGS = "abcde"
+MENU = 0|1
+Make disabled/enabled menu. Use when set up BSs as you wish and don`t want to menu be used by someone.
+
+LOGS = "abcde"
+define which activities it will log
+
+Rest files you can create via menu.
+
+Commands
+Quote:
+bs_menu
+open main menu, plugin add own option to amxmodmenu
+Main Menu: http://rex.netsky.pl/download/hl/bs_menu.JPG
+Menu of modify BS: http://rex.netsky.pl/download/hl/bs_edit.JPG
+
+Quote:
+bs_default
+restore default configuration of map (after use need restart or mapchange to make effect)
+
+Quote:
+bs_radar
+for clients, switch on/off BS radar
+
+Cvars
+Quote:
+amx_bs_draw 0|1
+disable/enable bs radar function
+
+Info
+Take care you downloaded all files which are attached - configs dir is very important part of plugin and you need .txt file to understand menu options.
+
+Credits
+Miczu and his m_eel.amxx
+Pavulon (with function Decal)
+jopmako http://forums.alliedmods.net/showthread.php?p=401208
+(used his idea of mark BSs)
+
+ML authors:
+[de] - Nextra
+[ru] - xPaw
+[nl] - crazyeffect
+[es] - alan_el_more
+[ro] - dorin2oo7
+[fr] - PsYChOPaTiQuE & ConnorMcLeod
+[sv] - zacky
+[lt] - mobididikas
+[pt] - NGage70
+
+History
+1.3
+- reload target (explosion of c4 will use some func_breakable if originally scripted)
+- bombsites on radar
+- format->formatex (thx Nextra)
+1.2 - first public release

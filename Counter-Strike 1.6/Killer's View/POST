@@ -1,0 +1,50 @@
+https://forums.alliedmods.net/showthread.php?p=1736760
+
+
+
+    Killer's View
+
+
+
+
+    .: Description :.
+
+        Just a little plugin.
+        Players see themselves dying from killer's view.
+
+
+
+    .: Cvars :.
+
+        kv_buttonsdelay < value >
+
+            Delay before which player won't be able to swicth spec view/target with mouse buttons (default 2.0)
+
+        kv_3rdview < num >
+
+            If different from 0, player switch on killer with 3rd view, else on 1st person view (default : 0)
+
+        kv_fade < RRRGGGBBBAAA >
+
+            Color and Alpha of fade effect, where RRR is red, GGG is grenn, BBB is blue, and AAA is alpha
+            Any of those 4 value has to be represented with 3 characters, so if you want red = 0, you have to put 000
+            Set fade "0" to disable the fade feature.
+
+
+
+
+    .: Modules :.
+
+        fakemeta
+        hamsandwich
+
+
+
+    .: Requirements :.
+
+
+    mp_forcecamera 0
+
+
+
+

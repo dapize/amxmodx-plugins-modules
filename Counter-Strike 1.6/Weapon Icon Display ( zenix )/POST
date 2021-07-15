@@ -1,0 +1,33 @@
+https://forums.alliedmods.net/showthread.php?p=608558
+
+Introduction:
+The original author of this plugin ( unapproved now ) stopped supporting this almost a year ago and his plugin contained some annoying bugs such as the icons constantly being pink.
+
+Description:
+This plugin displays your current weapon as an icon in your hud.
+Icon colors:
+green - sufficient ammo
+yellow - last clip of ammo
+red - no more ammo left
+Cvars:
+amx_weapon_location x (0/1/2 - default is 1 ) - If 0 then no icon will be displayed. If 1 then the icon will be displayed on the left side of the screen with the other icons. If 2 then the icon will be displayed by the game clock.
+Notes:
+- the flash bang and the smoke nade share the same icon because the game developers decided not to make an icon for the smoke for some unknown reason
+- I was not able to fix the flashbang/smoke icon because the sprites are read from the hud.txt on client side
+Attached Thumbnails
+Click image for larger version
+
+Name:	1.JPG
+Views:	535979
+Size:	1.7 KB
+ID:	25440   Click image for larger version
+
+Name:	2.JPG
+Views:	356041
+Size:	2.0 KB
+ID:	25441   Click image for larger version
+
+Name:	3.JPG
+Views:	347524
+Size:	2.0 KB
+ID:	25442  

@@ -1,0 +1,12 @@
+https://forums.alliedmods.net/showthread.php?t=27858
+
+This plugin is like Gore Mod except you can change the color of the blood.
+
+CVARs:
+blood_gore - Gore Enabled? (0=normal blood 1=gore)
+(Default: 1)
+blood_color - the color of the blood. (in 256 colors)
+(Default: 229) (Use this chart)
+
+Commands:
+amx_bloodcolors - Shows an MOTD window with the color chart in it.

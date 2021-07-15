@@ -1,0 +1,174 @@
+[en]
+WORD_ADD = Add
+WORD_WIDTH = Width
+WORD_LENGTH = Length
+WORD_HEIGHT = Height
+WORD_AXIS = axis
+WORD_MORE = More
+WORD_LESS = Less
+WORD_DELETE = Delete
+WORD_RETURN = Return
+
+BS_SAVE = Save to file
+BS_SAVED = BombSites Saved!
+BS_NOW_MORE = Can`t create new BS
+NEED_RESTART = In case troubles restart server / change map.
+
+[pl]
+WORD_ADD = Dodaj
+WORD_WIDTH = Szerokość
+WORD_LENGTH = Długość
+WORD_HEIGHT = Wyskość
+WORD_AXIS = oś
+WORD_MORE = Więcej
+WORD_LESS = Mniej
+WORD_DELETE = Usuń
+WORD_RETURN = Powrót
+
+BS_SAVE = Zapisz do pliku
+BS_SAVED = BombSite`y zapisane!
+BS_NOW_MORE = Nie mozna dodac kolejnego BSa
+NEED_RESTART = W razie klopotow daj restart / zmien mape.
+
+[de]
+WORD_ADD = Hinzufuegen
+WORD_WIDTH = Breite
+WORD_LENGTH = Laenge
+WORD_HEIGHT = Hoehe
+WORD_AXIS = Achse
+WORD_MORE = Mehr
+WORD_LESS = Weniger
+WORD_DELETE = Loeschen
+WORD_RETURN = Zurueck
+
+BS_SAVE = In Datei speichern
+BS_SAVED = Bombspots gespeichert!
+BS_NOW_MORE = Kann neuen Spot nicht erstellen.
+NEED_RESTART = Bei Problemen Server neustarten / map wechseln.
+
+[ru]
+WORD_ADD = Dobavit'
+WORD_WIDTH = Shirina
+WORD_LENGTH = Dlina
+WORD_HEIGHT = Vysota
+WORD_AXIS = Os'
+WORD_MORE = Bol'she
+WORD_LESS = Men'she
+WORD_DELETE = Udalit'
+WORD_RETURN = Vernut'
+
+BS_SAVE = Sohranit' v fajl
+BS_SAVED = bomb-sajdy Sohraneny!
+BS_NOW_MORE = Nemogu sozdat' novyj bomb-sajd
+NEED_RESTART = Chtoby nebylo problem, perezagruzite kartu!
+
+[nl]
+WORD_ADD = Voeg toe
+WORD_WIDTH = Breedte
+WORD_LENGTH = Lengte
+WORD_HEIGHT = Hoogte
+WORD_AXIS = as
+WORD_MORE = Meer
+WORD_LESS = Minder
+WORD_DELETE = Verwijder
+WORD_RETURN = Ga terug
+BS_SAVE = Sla op in document
+BS_SAVED = BombSites opgeslagen!
+BS_NOW_MORE = Kan geen nieuwe bomsite creëren
+NEED_RESTART = In geval van problemen, herstart de server/verander de map.
+
+[es]
+WORD_ADD = Agregar
+WORD_WIDTH = Anchura
+WORD_LENGTH = Longitud
+WORD_HEIGHT = Altura
+WORD_AXIS = eje
+WORD_MORE = Mas
+WORD_LESS = Menos
+WORD_DELETE = Borrar
+WORD_RETURN = Volver
+
+BS_SAVE = Guardar en archivo
+BS_SAVED = BombSites Guardados!
+BS_NOW_MORE = No se pueden crear nuevas BS
+NEED_RESTART = En caso de problemas, reinicie el servidor o cambiar de mapa.
+
+[fr]
+WORD_ADD = ajouter
+WORD_WIDTH = largeur
+WORD_LENGTH = longueur
+WORD_HEIGHT = hauteur
+WORD_AXIS = axe
+WORD_MORE = plus
+WORD_LESS = moins
+WORD_DELETE = supprimer
+WORD_RETURN = precedent
+BS_SAVE = sauvegarder
+BS_SAVED = site bombe sauvegarde!
+BS_NOW_MORE = tu ne peux pas creer un nouveau BS
+NEED_RESTART = il faut redemarrer le serveur / changer la carte.
+
+[ro]
+WORD_ADD = Adauga
+WORD_WIDTH = Latime
+WORD_LENGTH = Marime
+WORD_HEIGHT = Inaltime
+WORD_AXIS = axa
+WORD_MORE = Mai mult
+WORD_LESS = Mai putin
+WORD_DELETE = Sterge
+WORD_RETURN = Inapoi
+
+BS_SAVE = Saalveaza in fisier
+BS_SAVED = Locatii Bomba salvate!
+BS_NOW_MORE = Nu pot salva noua locatie pentru bomba
+NEED_RESTART = In cazul in care apar probleme reporniti server-ul / schimbati harta.
+
+[sv]
+WORD_ADD = L'a'gg till
+WORD_WIDTH = Bredd
+WORD_LENGTH = L'a'ngd
+WORD_HEIGHT = H'o'jd
+WORD_AXIS = Axel
+WORD_MORE = Mer
+WORD_LESS = Mindre
+WORD_DELETE = Ta Bort
+WORD_RETURN = Aterv'a'nd
+ 
+BS_SAVE = Spara till fil
+BS_SAVED = BombPlatser Sparade!
+BS_NOW_MORE = Kan inte skapa ny BP
+NEED_RESTART = Vid trubbel restarta servern / byt map
+
+[lt]
+WORD_ADD = pridėti
+WORD_WIDTH = plotis
+WORD_LENGTH = ilgis
+WORD_HEIGHT = ūgis
+WORD_AXIS = ašis
+WORD_MORE = daugiau
+WORD_LESS = mažiau
+WORD_DELETE = ištrinti
+WORD_RETURN = atgal
+
+BS_SAVE = Išsaugoti į failą
+BS_SAVED = BombSites IŠSAUGOTA!
+BS_NOW_MORE = Negalima sukurti naujo BS
+NEED_RESTART = Turint problemų perkrauk serverį / pakeisk žemėlapį.
+
+
+[pt]
+WORD_ADD = Adicionar
+WORD_WIDTH = Largura
+WORD_LENGTH = Comprimento
+WORD_HEIGHT = Altura
+WORD_AXIS = eixo
+WORD_MORE = Mais
+WORD_LESS = Menos
+WORD_DELETE = Apagar
+WORD_RETURN = Voltar
+
+BS_SAVE = Guardar para Ficheiro
+BS_SAVED = BombSites Guardados!
+BS_NOW_MORE = Nao e possivel criar um novo BS
+NEED_RESTART = Em caso problemas reinicie servidor / mude o mapa.

@@ -1,0 +1,56 @@
+https://forums.alliedmods.net/showthread.php?t=86241
+
+Ping Faker
+
+Description
+
+This plugin can fake the display of a player's latency (ping) shown on the scoreboard. Unlike the "fakelag" command, it does not affect the player's real latency in any way.
+
+You can have all players report the same ping, or only fake it for those having a specific IP/SteamID. This last feature is especially useful when running a dedicated server from your own computer, when you don't want people to guess you're an admin/owner by looking at your low ping.
+
+Installation
+Extract .amxx file to your plugins folder, and add its name to plugins.ini
+Extract .ini file to your amxmodx/configs folder
+CVARS
+pingfake_enable <0/1> - Enable/disable ping faking
+pingfake_ping <1337> - The ping you want displayed (min: 0 // max: 4095)
+pingfake_flux <0> - Fake ping fluctuation amount (0 = none)
+pingfake_target <0/1> - Whether to display fake ping to its target too
+pingfake_bots <0/1/2> - Affect bots too (set to 2 for bots ONLY setting)
+pingfake_multiplier <0.0> - Set this to have the fake ping be a multiple of the player's real ping instead of fixed values (0.0 = disabled)
+pingfake_fileonly <0/1> - Enable this to fake pings ONLY for players listed on the .INI file
+
+Commands
+amx_fakeping <target> <ping> - Toggle fake ping override for player (use -1 to disable)
+You can also have players automatically get fake pings according to IP/SteamID by editing the "fakepings.ini" file in your configs folder.
+
+Changelog
+
+Code:
+- Version: 1.5a (Jun 11, 2014)
+* Fixed to send a single SVC_PINGS message using the real arguments from HL (this just means the code is now much simpler to understand)
+
+- Version: 1.5 (Jun 06, 2011)
+* Fixed plugin so that it works on all HL mods
+* Removed CVAR pingfake_flags (not really needed anymore)
+* Added feature (+CVAR) to have the plugin fake pings ONLY for players listed on the .INI file
+* Fixed fake pings overriden after DeathMsg/TeamInfo events in CS
+
+- Version: 1.4 (Mar 15, 2009)
+* Added feature (+CVAR) to have the fake ping be a multiple of the player's real ping
+
+- Version: 1.3 (Feb 24, 2009)
+* Added admin command to manually toggle fake ping for players
+* Added feature to automatically load fake pings from file
+
+- Version: 1.2a (Feb 24, 2009)
+* Fixed is_user_bot flag not being reset on disconnect
+
+- Version: 1.2 (Feb 23, 2009)
+* Added fake ping fluctuation and affect bots settings
+
+- Version: 1.1 (Feb 23, 2009)
+* Managed to send up to 3 pings on a single message, thus reducing bandwidth usage by 26%
+
+- Version: 1.0 (Feb 23, 2009)
+* Public release

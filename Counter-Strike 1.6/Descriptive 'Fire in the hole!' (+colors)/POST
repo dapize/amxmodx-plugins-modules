@@ -1,0 +1,16 @@
+https://forums.alliedmods.net/showthread.php?t=47109
+
+Descriptive 'Fire in the hole!'
+Description
+Plugin provides additional colored text for "Fire in the hole!" radio chat message.
+The color and the text is different for each grenade type and can be altered.
+This will help teammates to get the throwed grenade type and act accordingly.
+Search for "EDITABLE" mark in the plugin's source code to configure text and color.
+
+Examples
+Player (RADIO): Fire in the hole! [explosive]
+Player (RADIO): Fire in the hole! [flashbang]
+Player (RADIO): Fire in the hole! [smokegren]
+Credits
+Damaged Soul - colored chat text method
+p3tsin - team color override method

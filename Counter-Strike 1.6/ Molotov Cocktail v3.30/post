@@ -1,0 +1,106 @@
+https://forums.alliedmods.net/showthread.php?t=80745
+
+Description
+
+This plugin adds a new type of grenade, the Molotov cocktail. It can be used in addition to the standard grenade (high explosive in CS/CS:CZ, hand grenade/stick grenade/Mills bomb in DOD, hand grenade in TFC), or as a replacement.
+
+
+YouTube Video Demonstration
+Geeky video capture details
+
+
+This version is based on the last version released by SAMURAI & [ --<-@ ] Black Rose. Some CVARs, default values, command arguments, and file paths have been changed. Please read everything here if you are upgrading. I recommend you delete all of the old files related to this plugin as the zip file below has everything required in the proper path.
+
+This plugin supports Counter-Strike 1.6, Counter-Strike: Condition Zero, Day of Defeat 1.2, and Team Fortress Classic 1.5.
+
+I have put countless hours of my time into this plugin and wish for it to work as flawlessly as possible. In return, I only ask that you report any bugs you may find. Either post a reply to this thread, or add a new task to my bug tracker (quick registration required).
+
+
+Installation
+
+Just unzip the archive into your <modname> directory, (e.g. cstrike, czero, dod, tfc). The location of this directory depends on where your server was installed, but some examples are:
+
+    Linux: /usr/local/hlds/cstrike/, /opt/hlds/cstrike/
+    Windows: C:\Program Files\Steam\SteamApps\<username>\dedicated server\cstrike\
+
+Unimportant details about every files used and which mods require which files
+Code:
+
+					half-life/of	cstrike/czero	dmc	dod	tfc	Other
+					---------------	---------------	-------	-------	-------	-----
+.../molotov_cocktail.sma*		Yes		Yes		Yes	Yes	Yes	Yes
+.../molotov_cocktail.amxx*		Yes		Yes		Yes	Yes	Yes	Yes
+models/molotov/p_molotov.mdl		Yes		Yes		Yes	Yes	Yes	Yes
+models/molotov/v_molotov.mdl		Yes		Yes		Yes	Yes	Yes	Yes
+models/molotov/w_molotov.mdl		Yes		Yes		Yes	Yes	Yes	Yes
+models/molotov/w_broke_molotov.mdl	Yes		Yes		Yes	Yes	Yes	Yes
+sound/molotov/molotov_fire.wav		Yes		Yes		Yes	Yes	Yes	Yes
+sprites/black_smoke3.spr		Yes		No		Yes	No	Yes	?
+sprites/flame.spr			Yes		Yes		Yes	Yes	Yes	?
+sprites/steam1.spr			No		No		No	No	No	No
+
+* These paths should read:
+    addons/amxmodx/scripting/molotov_cocktail.sma
+    addons/amxmodx/plugins/molotov_cocktail.amxx
+
+
+
+Once the files are in place, add the following line to plugins.ini:
+Code:
+
+molotov_cocktail.amxx
+
+Optionally, add any CVARs you wish to customize to server.cfg (or another config file of your choosing).
+
+
+Usage
+
+Say Commands
+
+    molotov Buy a Molotov
+    /molotov Buy a Molotov
+
+
+Console Commands
+
+    molotov_give <player|@all|@t|@ct|@al|@ax|@br|@b|@r|@y|@g > Give Molotovs to a player, everyone, or specified team
+    molotov_cocktail [0|1] Enable(1)/Disable(0) the plugin (If no arguments, show the status)
+    molotov_override [0|1] Enable(1)/Disable(0) the standard grenade override (If no arguments, show the status)
+
+
+
+Configuration
+
+CVARs
+
+    molotov_enabled <0|1> (Default: 1) Enable(1)/Disable(0) the plugin
+    molotov_price <N> (Default: 1200) Set the Molotov price (Counter-Strike only)
+    molotov_damage <N> (Default: 50) Set the damage done by initial Molotov explosion
+    molotov_radius <N> (Default: 150) Set the radius of Molotov damage
+    molotov_firetime <N> (Default: 6) Duration (in seconds) of fire effects, sounds, etc.
+    molotov_firedamage <N> (Default: 3) Amount of damage done by fire effects (every 0.2 secs)
+    molotov_ff <0|1|-1|-2> (Default: 1) Set Molotov friendly fire status (Was molotov_tk)
+        0 - Disable friendly fire for Molotov (regardless of mp_friendlyfire)
+        1 - Enable friendly fire for Molotov (regardless of mp_friendlyfire)
+        -1 - Use mp_friendlyfire value (v3.21+)
+        -2 - Check bit 5 (decimal: 16) of mp_teamplay (DOD and TFC only) (v3.21+)
+    molotov_override_he <0|1> (Default: 0) Override the mod's standard grenade automatically with Molotov (Was molotov_tempoverride)
+    molotov_max <N> (Default: 1) Limit carried Molotovs to this amount (Does not work with override)
+    (Recommended: CSTRIKE: ≤ 10; DOD: ≤ 9; TFC: ≤ 4;)
+    molotov_buyzone <0|1> (Default: 1) Limit Molotov buying to buyzone (Counter-Strike only)
+    molotov_menu <0|1> (Default: 0) Enable menu at beginning of each round (Was amx_molotovmenu) (Counter-Strike only)
+    mp_friendlyfire <0|1> Only checked if molotov_ff = -1
+    mp_teamplay <N> Only checked if molotov_ff = -2 (DOD/TFC only)
+
+
+
+Known Issues and (Possible) Future Changes
+
+    When you "drop weapon" with a molotov equipped ("G" by default), the model shown is of the HE (Counter-Strike)
+    Multilingual support is missing
+    CSTRIKE: Killing hostages doesn't penalize killer
+    DOD: Player grenade count not updated immediately
+    DOD: Wrong throwing animation played
+    DOD/TFC: Molotov doesn't explode after hitting breakable glass
+    TFC: Molotov kills allied team players (e.g. hunted) This is due to a bug in tfc_is_team_ally() in AMX Mod X
+

@@ -1,0 +1,104 @@
+https://forums.alliedmods.net/showthread.php?t=41126
+
+Inspired by Frostbolt and Frost Nova
+
+Latest Version:
+2.14 (03/27/12)
+Fixed bug where snowflake icon would not show up on start of a new round if you had one at the end of the previous round with fn_icon 1.
+Fixed bug where you could not buy a new frost grenade if you had one before a round restart (e.g. sv_restartround) or if your weapons were stripped via player_weaponstrip (e.g. on scoutzknivez) with fn_override 1.
+Made it so frost grenade kills are logged as such in the server log (thanks STr!ker).
+
+Description:
+This addon turns your grenades into frost grenades. When hit by the blast, you have a large chance to be chilled, reducing your movement speed, and a smaller chance to be frozen in place completely. The closer you are to the center of the blast, the higher your chances are of getting chilled or frozen. The frost grenade also deals minimal damage.
+
+Requirements:
+AMXX 1.80 or later
+Fun Module
+Cstrike Module
+Fakemeta Module
+Ham Sandwich Module
+
+Notes:
+This plugin uses 2 default models, 5 default sounds, and 3 default sprites. (Previous versions used custom resources.)
+
+This plugin has been made to be compatible with as many other plugins as possible, including gravity and speed changing plugins, and some grenade plugins.
+
+The frost grenade's effects follow mp_friendlyfire.
+
+For the cvars that have to do with how close you are to the blast, note that if you are standing and a grenade lands at your feet, you are still only about 85% close (about 90% if crouching).
+
+Cvars:
+fn_enabled (default 1) - toggles the plugin.
+fn_override (default 1) - if set, frost grenades override your regular grenades. otherwise, you have to type /fn or /frostnade to buy one.
+fn_nadetypes (default 4) - controls which grenades can be frost grenades. 1 = flashbang, 2 = HE grenade, 4 = smoke grenade — add the numbers together for multiple grenade types.
+fn_teams (default 3) - which teams are allowed to buy/use frost grenades. 1 = T only, 2 = CT only, 3 = both teams.
+fn_price (default 300) - how much a frost grenade costs, if not using fn_override.
+fn_icon (default 1) - controls when the snowflake icon is shown. if set to 1, it is show when you own a frost grenade. if set to 2, it is shown when you are chilled or frozen. if set to 0, it is never shown.
+fn_limit (default 0) - if set above 0, you can only buy this many frost grenades per life, if not using fn_override.
+fn_buyzone (default 1) - if you have to be in a buyzone to buy a frost grenade, if not using fn_override.
+fn_color (default "0 206 209") - the RGB color of the frost grenade. set this to "team" to use the color of the team of the player who threw it.
+fn_by_radius (default 0.0) - if set above 0.0, frost grenades work slightly differently. they will always chill you, and will always freeze you if you are at least this percentage close to the blast. ie: set this to 60.0, and you will always be frozen if you are at least 60% from the edge of the circle to the center. suggested by X-olent.
+fn_hitself (default 1) - if a player can be hit by his own frost grenade.
+fn_los (default 1) - if a player has to be in the line of sight of a frost grenade to get hit by it.
+fn_maxdamage (default 20.0) - damage dealt to a player at the center of the blast.
+fn_mindamage (default 1.0) - damage dealt to a player at the edge of the blast.
+fn_chill_maxchance (default 100.0) - chance that a player at the center of the blast will get chilled, if not using fn_by_radius.
+fn_chill_minchance (default 100.0) - chance that a player at the edge of the blast will get chilled, if not using fn_by_radius.
+fn_chill_duration (default 7.0) - how long, in seconds, the chill effect lasts.
+fn_chill_variance (default 1.0) - the variance in how long the chill lasts. e.g. if duration = 7.0 and variance = 1.0, it can last anywhere from 6.0 to 8.0 seconds.
+fn_chill_speed (default 60.0) - the percentage of regular speed that a player moves while chilled.
+fn_freeze_maxchance (default 110.0) - chance that a player at the center of the blast will get frozen, if not using fn_by_radius.
+fn_freeze_minchance (default 40.0) - chance that a player at the edge of the blast will get frozen, if not using fn_by_radius.
+fn_freeze_duration (default 4.0) - how long, in seconds, the freeze effect lasts.
+fn_freeze_variance (default 0.5) - the variance in how long the freeze lasts. e.g. if duration = 4.0 and variance = 0.5, it can last anywhere from 3.5 to 4.5 seconds.
+
+Forwards:
+This plugin creates the following two forwards which can be used by other plugins:
+PHP Code:
+/* victim is being chilled by attacker.
+ * attacker is not guaranteed to be connected. */
+public frostnades_player_chilled( victim, attacker );
+
+/* victim is being frozen by attacker.
+ * attacker is not guaranteed to be connected. */
+public frostnades_player_frozen( victim, attacker ); 
+These forwards occur before the actual effects, so you may return PLUGIN_HANDLED in either of these forwards to stop them.
+
+Previous Changes:
+2.13 (03/25/12)
+Reduced the amount of messages sent by the server for managing the snowflake icon (thanks Arkshine).
+2.12 (01/02/12)
+Added several more optimizations thanks to Arkshine and Nextra.
+2.11 (12/28/11)
+Added several optimizations thanks to Arkshine.
+Added forwards for when a player gets chilled and when a player gets frozen, thanks to nikhilgupta345. (See Forwards section above.)
+2.10 (12/24/11)
+Updated models and sounds. FrostNades no longer uses custom resources! :)
+2.09 (10/09/08)
+Fixed the bug where players would have normal speed after becoming unfrozen.
+Fixed the bug where players who were frozen at the end of the round could move during buytime.
+2.08 (10/05/08)
+Fixed the speed bug when zooming.
+2.07 (09/28/08)
+Should be more compatible with other speed-changing plugins.
+2.06 (09/14/08)
+Fixed a bug that would cause players to move at full speed whenever they got chilled but not frozen.
+2.05 (09/13/08)
+Added a second mode for when fn_icon is set to 2. If used, the snowflake icon appears only when you are chilled or frozen.
+2.04 (09/07/08)
+Added the GLOW_AMOUNT define near the top of the script to make it easier to change the thickness of the glowshell.
+2.03 (09/05/08)
+When chilled, the plugin now keeps track of players' render color in addition to their other render settings. This fixes a bug that could cause players to keep their glow after the chill effect wore off, when in combination with other plugins.
+Added a new cvar, fn_icon (default 1), which controls whether or not the snowflake icon is displayed when you have a frost grenade.
+2.02 (08/30/08)
+Fixed a bug that would cause players to go invisible when hit by a frost grenade.
+Players will no longer lose any custom rendering set by other plugins once the chill effect wears off.
+Fixed a potential issue with resetting player gravity back to custom values after the freeze effect wore off.
+2.01 (08/09/08)
+If you get blinded by a flashbang while chilled/frozen, FrostNades will no longer clear your blindness once the chill effect ends. Thanks ot_207.
+The fn_roundlimit cvar was renamed to fn_limit. Instead of limiting the number of frost grenades you can buy per round, it now limits the number you can buy per life (so as to better work with respawning plugins).
+If you are using fn_override 0 and another plugin strips your frost grenade from you, FrostNades will now recognize that and let you to buy another.
+2.00 (08/04/08)
+Remade the entire plugin!
+
+

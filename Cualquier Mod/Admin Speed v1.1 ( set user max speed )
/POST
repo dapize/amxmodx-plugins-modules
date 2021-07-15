@@ -1,0 +1,65 @@
+https://forums.alliedmods.net/showthread.php?t=29375
+
+
+Code:
+/* AMX Mod X Script */
+
+/*
+  Admin Speed v1.1  -=- by KinSprite , 06/08, 2006
+  
+  With this plugin , the admin can set Players's running speed.
+  
+  [Cvars]:   
+	    amx_allowspeed <1 or 0>    // 0, turn off speed changing.
+	    
+	    amx_speedall <1 or 0>      // 1, all players at the same running speed, except special players
+	    
+	    amx_speedallvalue <Integer: percent of normal speed> 
+	                               //all players's running speed value, except special players
+	    
+  
+  [Command]:
+            amx_speed <#userid,nick,authorid,@ALL,@TEAM> [ON/OFF] [Integer: percent of normal speed]
+	    
+	    // to Set special players' speed. 
+	    
+	    
+  [Required Module]:  Fun
+
+  
+  [Change Log]:
+  
+	v1.1:
+	    1, fix speed when a sniper rifle is zoomed in/out or a shield is opened/closed
+	    2, all players can run at the same percent of normal speed, except special players
+	
+*/
+Code:
+#include <amxmodx>
+#include <amxmisc>
+#include <fun>
+
+#define PLUGIN "Admin Speed"
+#define VERSION "1.1"
+#define AUTHOR "KinSprite"
+
+new g_WpnUsed[33]
+new bool:g_hasSpeed[33]
+new g_Speed[33]
+new g_allowspeed
+new g_speedall
+new g_speedallvalue
+
+public plugin_init()
+{
+    register_plugin(PLUGIN, VERSION, AUTHOR)
+    register_concmd("amx_speed", "cmdspeed", ADMIN_LEVEL_A, "<#userid,nick,authorid,@ALL,@TEAM> [ON/OFF] [Integer: percent of normal speed] - Set special players' speed")
+    register_event("CurWeapon","Change_Wpn","be","1=1")
+    register_event("HideWeapon", "Change_WpnState", "b")
+    register_logevent("new_round",2,"0=World triggered","1=Round_Start")
+    g_allowspeed = register_cvar("amx_allowspeed","1")
+    g_speedall = register_cvar("amx_speedall","0")
+    g_speedallvalue = register_cvar("amx_speedallvalue","100")
+}
+
+

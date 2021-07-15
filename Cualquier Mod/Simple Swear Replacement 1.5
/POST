@@ -1,0 +1,26 @@
+https://forums.alliedmods.net/showthread.php?t=10343
+
+Simple Swear Replacement filter 1.5
+Replaces the chat message containing any swear word with a replacement line from replacements.ini
+
+So anyone who swears will himself be insulted.
+
+Whenever any message is replaced, then the original message containing Swears will be shown to all the Admins (So the Admins know what was said).
+
+Admin messages are not replaced. So they can Swear ;)
+
+Uses swearwords.ini and replacements.ini files. Put these files in the AMX Config Directory. Other swear files can also be used.
+You can also add Swear Words and Replacement Lines to the files in between the game whenever you want.
+
+Console Commands
+~~~~~~~~~~~~~
+
+amx_addswear < swear word > - To add a swear word in swearwords.ini and start blocking the word from that moment on.
+
+amx_addreplacement < replacement line > - To add a new replacement line in replacements.ini
+
+New :
+* Added another feature to counter the people who try to be clever and deceive the swearing filters by adding spaces or special characters (For Example - typing SWEAR as - $WE@R or S W E @ R). This swear filter is capable of catching such tricks and still replace the swear words.
+* Added the Player's Name monitoring too. So if any player connects to the server whose name contains any swear word then his/her name will automatically be changed to No Swear
+
+P.S. If the number of swear words or replacement lines exceeds 150 or 50 respectively then change the values of MAX_WORDS and MAX_REPLACE in sma file.

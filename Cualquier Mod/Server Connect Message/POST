@@ -1,0 +1,24 @@
+Server Connect Message
+[0.7.0]
+
+
+- Description -
+
+Basically it displays a message when players connect.
+
+- Cvars -
+Quote:
+amx_connect_msg_on < 1 / 0> < On / Off> < Def: 1 >
+amx_connect_msg_token < # > < Symbol used to seperate message lines. > < Def: '$' >
+amx_conmsg < Message(max 191 symbols) > < Connect Message. Use the 'Token' to seperate lines(works just like /n and ^n) > < Def: "Welcome to my server!$Enjoy playing here.$Please, don't cheat!" >
+amx_connect_store_type < 1 / 2 > < SteamID / IP. The method how plugin saves player info for reconnect. I made it for IP so that non-steam users could also use this. > < Def: 1 >
+- ScreenShot -
+
+
+[IMG]http://img162.**************/img162/7344/screen1kiq.th.jpg[/IMG]
+
+- Change Log -
+
+Code:
+0.7.0
+*Initial Release

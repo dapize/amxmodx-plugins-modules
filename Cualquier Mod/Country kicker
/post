@@ -1,0 +1,25 @@
+https://forums.alliedmods.net/showthread.php?t=11412
+
+This plugin is used if you only want ppl from spesfic countrys on your server, or wanna prevent ppl from a spesfic countrys from entering
+
+
+Modules required: geoip
+
+Credits:
+Ops in #AMXmod @ Quakenet for alot of help ( + AssKicker & CheesyPeteza )
+xeroblood Explode string func
+
+Setting up plugin:
+sv_country
+1 Only allow ppl from this country
+2 Everyone exect from this country
+
+sv_country_name use commas to seperate country names
+like:
+sv_country_name "NOR,DEN"
+
+Country list: http://www.statoids.com/wab.html <- Use A-3
+
+Changelog
+1.0.0( 18.12.2004 )
+- First public release[/b]

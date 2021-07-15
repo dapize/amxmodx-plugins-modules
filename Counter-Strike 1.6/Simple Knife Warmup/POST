@@ -1,0 +1,12 @@
+https://gaming-zone.info/2020/12/09/simple-knife-round-1/
+
+
+https://forums.alliedmods.net/showthread.php?t=105239
+
+Description:
+This is simple warump with knifes only, against this advanced plugin. Really preety, only one CVAR - warmup timer, and multilanguage - three messages for players. Also removes from warmup round freezetime, and late restores it.
+CVAR's:
+PHP Code:
+warmup_timer "60" // warmup round time - set to -1 to disable 
+Changelog:
+1.0: First relase

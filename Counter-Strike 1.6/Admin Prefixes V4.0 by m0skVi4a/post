@@ -1,0 +1,150 @@
+https://forums.alliedmods.net/showthread.php?t=183491
+
+
+Plugin Name: Admin Prefixes
+Plugin Author: m0skVi4a ;]
+Plugin Version: 4.0
+Modification: Counter - Strike
+Category: Fun Stuff
+
+
+Description:
+
+With this plugin you can set prefixes to Admins with special flags. Also Admins can put custom prefixes to them or to other players if they want, but only if they have the required flag.
+
+
+Pictures:
+
+
+
+Commands:
+
+Commands:
+
+say /prefix
+Toggles Prefix ON or OFF.
+
+say_team /prefix
+Toggles Prefix ON or OFF.
+
+ap_reload_prefixes
+Reloads Prefixes' file from console without restarting the server.
+
+ap_reload_badprefixes
+Reloads Bad Prefixes' file from console without restarting the server.
+
+ap_put "type (f, i, s, n)" "key(Flag, IP, SteamID, name)" "Prefix"
+Puts prefix to the key you type if you have the special flag. Or if there is no prefix typed, removes the prefix which the player has.
+
+
+CVARS:
+
+Code:
+"ap_bad_prefixes"	- 	Is the Bad Prefixes option on(1) or off(0).   Default: 1
+"ap_listen"		- 	Is the Admin Listen option on(1) or off(0).   Default: 1
+"ap_listen_flag"	-	The flag, needed for Listen option.   Default: a
+"ap_custom"		-	Is the Custom Prefix option for each Admin is on(1) or off(0).   Default: 1
+"ap_custom_flag"	-	The flag, needed for setting custom prefix.   Default: b
+"ap_say_characters"	-	Is the Start Say Characters option on(1) or off(0).   Default: 1
+"ap_prefix_characters"	-	Is the Checker for Characters in Custom Prefixes' Options on(1) or off(0).   Default: 1
+
+All CVARS are without quotes
+
+Credits:
+
+m0skVi4a ;] - for the idea, making and testing the plugin
+SpeeDeeR - for little help with the plugin
+Ant1Lamer - for testing the plugin
+Vasilii-Zaicev - for testing the plugin
+
+
+Changelog:
+
+Code:
+April 22, 2012   -  V1.0:
+	-  First Release
+	
+May 19, 2012   -  V2.0:
+	-  Full optimization
+	-  Added Bad Prefixes' file
+	-  Added Multi-Lingual file
+	-  Added IP and Name support in ap_prefixes.ini
+	-  Added Forbidden Say characters
+	-  New CVARS for setting the flags for each of the options
+
+May 29, 2012   -  V2.1:
+	-  Fixed bug with some say or say_team commands are not executed
+
+January 17, 2013   -  V3.0:
+	-  Full optimization
+	-  Fixed bug when typing spaces and in tha chat is showing an empty message
+	-  SteamID support
+	-  Removed nvault
+	-  Removed ap_put_player command
+	-  ap_put_player command is combined with ap_put command
+	-  Removed some CVARs
+
+August 18, 2013   -  V4.0:
+	-  Small code changes and little bug fixes
+	-  Added Prefux Toggle command
+	-  Fixed bug with the supporting of the plugin on AMXX 1.8.2
+	-  AMXX 1.8.2 Supprot! 
+	-  SQL Version!
+
+Moduls:
+PHP Code:
+#include <amxmodx>
+#include <cstrike> 
+
+Libraries:
+PHP Code:
+#include <amxmisc>
+#include <celltrie>[
+#include <sqlx>[ 
+
+Installation
+1. Compile the plugin
+2. .amxx file goes to plugins dir
+3. admin_prefixes.txt goes to data/lang dir
+4. ap_prefixes.ini and ap_bad_prefixes.ini go to configs dir and customize them.
+5. Add the name of the .amxx file in plugins.ini and start your server
+
+
+How to set up ap_prefixes.ini
+- When adding new prefix, you should conform that you must set the type of the prefix. There are 4 types: type Flag, type IP, type SteamID and type Name, each begins with the character "f", "i", "s" и "n" accordingly.
+Here are some examples:
+"f" "n" "[PREFIX FLAG]" - this way person with Flag n will have prefix [PREFIX FLAG]
+"i" "192.168.1.100" "[PREFIX IP]" - this way person with IP 192.168.1.100 will have prefix [PREFIX IP]
+"s" "STEAM_0:1:52985922" "[PREFIX STEAMID]" - this way person with Name m0skVi4a ;] will have prefix [PREFIX NAME]
+"n" "m0skVi4a ;]" "[PREFIX NAME]" - this way person with Name m0skVi4a ;] will have prefix [PREFIX NAME]
+
+- If you want to edit who can use the reload command for the plugin's file, open the .sma file and find
+PHP Code:
+#define FLAG_LOAD ADMIN_CFG 
+and edit ADMIN_CFG to the flag that you want (It mustn't be just a character)
+
+- If you want to edit how many prefixes can be loaded, open the .sma file and find
+PHP Code:
+#define MAX_FLAGS 33 
+and edit 33 to any number you want (It is recommended not to be touched)
+
+- If you want the prefix to be coloured, use !g for green, !t for team and !n for noramal colour (It DOES NOT works and with the commands ap_put and ap_put_player)
+
+
+How to set up ap_bad_prefixes.ini
+- If you want to add new Bad Prefix, just write each prefix on new line.
+Here is an example:
+"[OWNER]"
+"[BOSS]"
+"[PROSTAK]"
+"[IDIOT]" - that way people who can set Custom Prefixes, can not set these.
+
+- If you want to edit who can use the reload command for the plugin's file, open the .sma file and find
+PHP Code:
+#define FLAG_LOAD ADMIN_CFG 
+and edit ADMIN_CFG to the flag that you want (It mustn't be just a character) (same as ap_prefixes.ini)
+
+- If you want to edit how many prefixes can be loaded, open the .sma file and find
+PHP Code:
+#define MAX_BAD_PREFIXES 100 
+and edit 100 to any number you want (It is recommended not to be touc

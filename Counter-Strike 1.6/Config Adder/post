@@ -1,0 +1,77 @@
+https://forums.alliedmods.net/showthread.php?p=1374132
+
+    Config Adder
+
+
+
+
+.: Description :.
+
+
+This plugin allow, while in-game or from server console, to add some configs commands or cvars in
+server.cfg, game.cfg, amxx.cfg, mapname.cfg, prefix_mapprefix.cfg.
+Also allow to create folder and to write any file.
+
+
+
+.: Commands :.
+
+    addcfg_server < cfg string >
+
+        Add a config in server.cfg
+
+    addcfg_game < cfg string >
+
+        Add a config in game.cfg
+
+    addcfg_amxx < cfg string >
+
+        Add a config in $configsdir/amxx.cfg
+
+    addcfg_map < cfg string >
+
+        Add a config in $configsdir/maps/currentmapname.cfg
+
+    addcfg_prefix < cfg string >
+
+        If current mapname has a prefix, add a config in $configsdir/maps/prefix_currentmapprefix.cfg
+
+    amx_write_file < file path > < string to write >
+
+        Add a line in specified file if folder path can be reached
+
+    amx_make_dir < folder path >
+
+        Create a directory
+
+
+
+
+.: Examples :.
+
+
+Code:
+
+addcfg_game mp_timelimit 30
+addcfg_prefix mp_timelimit 20
+addcfg_map mp_timelimit 8
+amx_make_dir misc
+amx_write_file misc/dont_forget.txt Buy some bread.
+amx_write_file addons/amxmodx/configs/clcmds.ini "Make user quit." "quit" "cd" "u"
+amx_write_file addons/amxmodx/configs/cvars.ini "sv_alltalk" "0" "1" "u"
+
+
+
+.: ChangeLog :.
+
+
+Code:
+
+v0.0.2 19 dec 2010
+- added command amx_write_file
+- added command amx_make_dir
+
+v0.0.1 19 dec 2010
+- First release
+
+

@@ -1,0 +1,64 @@
+https://forums.alliedmods.net/showthread.php?p=111784?p=111784
+
+AMX Exec 2 v0.3 - v3x
+
+I know what you're thinking right now.. "I've seen at least 5 of these plugins on here already". Well, I decided to make my own since I didn't like the rest of them. This one is fully functional and contains lots of team names and such to use.
+
+Description:
+Basically whatever a player can put into his console, you can make him do the same. You can use it to make him say something, execute a file, make him play a sound, make him shoot/jump/duck/etc. If you have a Warcraft3 server, you could even use it to bind their keys to shopmenus and such. Hopefully you don't do anything that will cause damage towards the client, as that is not the purpose of this plugin. Hopefully that gave you a good understanding of this plugin and what it does.
+
+Here's examples of every possibility:
+Code:
+Single player:
+amx_exec v3x "say hey"
+
+All players:
+amx_exec @A "say hey"
+amx_exec @ALL "say hey"
+amx_exec * "say hey"
+
+Terrorist team:
+amx_exec @T "say hey"
+amx_exec @TE "say hey"
+amx_exec @TER "say hey"
+amx_exec @TERROR "say hey"
+amx_exec @TERRORIST "say hey"
+
+Counter-Terrorist team:
+amx_exec @C "say hey"
+amx_exec @CT "say hey"
+amx_exec @COUNTER "say hey"
+
+NEW - Server:
+amx_exec @S "exec server.cfg"
+amx_exec @SERV "exec server.cfg"
+amx_exec @SERVER "exec server.cfg"
+Also, I used this idea from OLO's original amx_clexec plugin, IE:
+Code:
+amx_exec v3x "name \'im so leet\'"
+It will replace every \' with a quotation mark (useful).
+
+---
+amx_show_activity 0
+Code:
+// Displays nothing
+amx_show_activity 1
+Code:
+ADMIN: Command line "say hey" has been used on v3x!
+amx_show_activity 2
+Code:
+ADMIN v3x: Command line "say poop" has been used on v3x!
+---
+
+It will automatically skip admins with the ADMIN_IMMUNITY flag so that the commands aren't used on them.
+
+Note: You can do this via server console also.
+
+Enjoy! 
+
+==========================
+Updates:
+0.3 - Integrated amx_show_activity cvar into message function
+0.2 - Added server commands + server_print() to message
+0.1 - Initial release
+==========================

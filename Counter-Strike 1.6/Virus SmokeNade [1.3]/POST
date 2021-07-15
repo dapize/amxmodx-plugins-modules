@@ -1,0 +1,86 @@
+https://forums.alliedmods.net/showthread.php?t=78305
+
+Virus SmokeNade
+1.3
+Translations: Click!
+
+Changelog:
+* [ 1.3 ]
+- added screenshake
+- added infection command
+* [ 1.2 ]
+- changing player's view angles at infection
+- added new model to smoke
+- change method of setting player's health
+* [1.1]
+- removed cstrike module
+* [ 1.0 ]
+- first released
+
+Description:
+General
+- this is a 'new' smoke grenade...wich "contains" a virus
+- trail and dynamic light effects
+- the nade has a green glow
+- at explosion, if you are in the radius zone...you will be infected with the virus and every x seconds, your hp begins to decrease with y...also your screen starts to fade and an icon apears and flashes on the left of the screen...oh, and you'll glow in green for x seconds. (all setable )
+- the smokegrenade has a explosion damage
+- you maxspeed wil be changed depending on the seconds that have passed after you've been infected
+- if you thuch/touched by a player that is infected...you will be infected too
+- if you kill a player with the smokenade, he will explode forming 3 red cylinders.
+- player infection can be announced
+- when a player is infected, his screen will go in a wierd angle (thanks v3x for angle values)
+- the nade has a new mode
+- NEW! Version 1.3: at infection, the player's screen will shake
+
+Antidote
+- you can buy an antidot for a specific amount of $ (cvar)
+- the antidote is taken in x seconds (cvar)
+- a bar appears on the players screen, and disappears when the antidote is taken
+
+Installation:
+1. Copy virusnade.sma to amxmodx/scripting
+2. Copy virusnade.amxx to amxmodx/plugins
+3. Extract 'model.rar' to cstrike/models dir.
+
+Cvars:
+virusnade_plugin 1/0 - enable/disable plugin (default 1)
+virusnade_impactdamage - damage for smokenade at impact (default 10)
+virusnade_damageinterval - interval in seconds for hp decreasing (default 3)
+virusnade_intervaldamage - damage done at interval seconds, every x seconds (default 5)
+virusnade_glow 1/0 - enable/disable glowing player when infected (default 1)
+virusnade_glowduration - duration in seconds for glow effect (default 2)
+virusnade_trail1/0 - enable/disable nade trail (default 1)
+virusnade_touch 1/0 - enable/disable infection at player touch (default 1)
+virusnade_changespeed 1/0 - enable/disable changing speed (default 1)
+virusnade_announce 1/0 - enable/disable player infection annoucement (default 1)
+virusnade_antidote 1/0 - enable/disable the possibility to buy antidote (default 1)
+virusnade_antidotecost - the cost for the antidote (default 1500)
+virusnade_antidoteduration - duration in seconds before the antidote is taken (default 10)
+virusnade_antidoteonlyknife 1/0 - enable/disable option that allows the player to play only with the knife while taking the antidote (default 1)
+virusnade_antidotebuyzone 1/0 - enable/disable buying the antidote only in the buyzone (default 1)
+virusnade_angles 1/0 -- enable/disable changing player's view angles at infection (default 1 )
+virusnade_newmodel 1/0 -- enable/disable changing smoke model (default 1 )
+
+radius can be changed from here:
+Code:
+#define radius   200.0
+color for light, trail and player glow:
+Code:
+new const g_Colors[ g_NadeColors ] = { 0, 255, 0 };
+PHP Code:
+// access needed to use the command
+#define ACCESS                ADMIN_BAN
+// comand this if you don't want an information message at infection by command
+#define COMMAND_INFO
+
+// new smoke models
+#define V_MODEL         "models/v_virusnade.mdl"
+#define W_MODEL            "models/w_virusnade.mdl" 
+Admin command:
+amx_infect <player> <hp> - infect a player with a specific amount of hp
+
+Clients command:
+say & say_team /antidote
+
+Modules: Fakemeta
+

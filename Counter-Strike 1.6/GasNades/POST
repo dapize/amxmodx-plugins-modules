@@ -1,0 +1,96 @@
+https://forums.alliedmods.net/showthread.php?p=532225
+
+GasNades
+
+: Description :.
+
+
+This plugin make players gasp/cough and/or loose hp when they are in the smoke of a smoke grenade.
+
+
+
+.: Cvars :.
+
+    amx_gasnades < 1|0 >
+
+        enable|disable the plugin
+
+    amx_gasobeyFF < 1|0 >
+
+        for the plugin to act according to cvar mp_friendlyfire (def=0)
+
+    amx_gascheck < cycle in seconds >
+
+        how often does it do damage/gasp(see 2 next cvars) in secs (def=2) - i recommand to set this at 1.0 or more if sounds are turned on.
+
+    amx_gasdmg < amount of damage >
+
+        how much damage does it do every check cycle (see amx_gascheck cvar) (def=2)
+
+    amx_smokegasp < 0|1 >
+
+        Gasping sounds when in the gas (def=1)
+
+    amx_gasradius < radius in units >
+
+        The radius toxic gas takes effect. The radius at 180-220 equals to appearance of smoke that a grenade spreads. Beware that the appearance of smoke won't increases by this value. if it is 0, damage takes no effects. (def=200)
+
+    amx_gas_restore < 0|1 >
+
+        restore players HP (def=1)
+
+    amx_gaslife < timelength > (default 25)
+
+        Time it takes to the gaz to disappear
+
+    amx_gas_nosmoke < 0|1 >
+
+        See the smoke or not (def=0)
+
+
+
+
+.: Requirements :.
+
+
+Modules : Fakemeta & Hamsandwich
+Two sounds that go in "cstrike/sound/player/"(or "czero/sound/player/") - see attachments
+
+
+
+.: Changelog :.
+
+Code:
+
+v2.0.0 ( 08 nov 2008 )
+- rewritten from the scratch
+- nades are now additive
+- gas life by cvar
+- new cvar to prevent the smoke from showing
+v1.6 ( 13 nov 2007 )
+- now when a player dies, nade's owner gets a frag
+- don't make death msgs if another plugin block those messages
+v1.5b
+ - little optimization ( get_gametime was used more than 1 time in few functions )
+ - error fix in entity think forward, now check first if entity is valid
+ - added a public cvar
+ - little changes/cleanup
+v1.5a
+ - amx_gas_restore now works according to cvars amx_gascheck and amx_gasdmg
+v1.5
+ - added cvar  amx_gas_restore that allow to restore players HP
+v1.4b
+ - fixed plugin didn't work correctly with mp_friendlyfire
+ - little optimization
+v1.4
+ - Almost completly rewrote the plugin
+
+
+
+.: Credits :.
+
+
+RichoDemus, AssKicR and T(+)rget for previous versions
+
+VEN
+
